@@ -1,0 +1,2209 @@
+[
+    {
+        "name": "Two Sum",
+        "slug": "two-sum",
+        "platform": "leetcode",
+        "difficulty": "Easy",
+        "topics": [
+            "Array",
+            "Hash Table"
+        ],
+        "companies": [
+            "Google",
+            "Amazon",
+            "Apple",
+            "Microsoft",
+            "Facebook"
+        ],
+        "link": "https://leetcode.com/problems/two-sum/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "3Sum",
+                    "slug": "3sum",
+                    "link": "https://leetcode.com/problems/3sum/",
+                    "difficulty": "Medium"
+                },
+                {
+                    "name": "Two Sum II",
+                    "slug": "two-sum-ii-input-array-is-sorted",
+                    "link": "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/",
+                    "difficulty": "Medium"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Key Pair",
+                    "link": "https://practice.geeksforgeeks.org/problems/key-pair5616/1",
+                    "difficulty": "Easy"
+                }
+            ],
+            "codeforces": [
+                {
+                    "name": "Two Sum Queries",
+                    "link": "https://codeforces.com/problemset/problem/1005/C",
+                    "difficulty": "1400"
+                }
+            ],
+            "coding_ninjas": [
+                {
+                    "name": "Pair Sum",
+                    "link": "https://www.naukri.com/code360/problems/pair-sum_697295",
+                    "difficulty": "Easy"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Add Two Numbers",
+        "slug": "add-two-numbers",
+        "platform": "leetcode",
+        "difficulty": "Medium",
+        "topics": [
+            "Linked List",
+            "Math",
+            "Recursion"
+        ],
+        "companies": [
+            "Amazon",
+            "Microsoft",
+            "Bloomberg"
+        ],
+        "link": "https://leetcode.com/problems/add-two-numbers/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Add Two Numbers II",
+                    "slug": "add-two-numbers-ii",
+                    "link": "https://leetcode.com/problems/add-two-numbers-ii/",
+                    "difficulty": "Medium"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Add Two Numbers Represented by Linked Lists",
+                    "link": "https://practice.geeksforgeeks.org/problems/add-two-numbers-represented-by-linked-lists/1",
+                    "difficulty": "Medium"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "Add Two Numbers as Linked Lists",
+                    "link": "https://www.naukri.com/code360/problems/add-two-numbers-as-linked-lists_1170520",
+                    "difficulty": "Medium"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Longest Substring Without Repeating Characters",
+        "slug": "longest-substring-without-repeating-characters",
+        "platform": "leetcode",
+        "difficulty": "Medium",
+        "topics": [
+            "Hash Table",
+            "String",
+            "Sliding Window"
+        ],
+        "companies": [
+            "Amazon",
+            "Google",
+            "Bloomberg",
+            "Facebook",
+            "Microsoft"
+        ],
+        "link": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Longest Repeating Character Replacement",
+                    "slug": "longest-repeating-character-replacement",
+                    "link": "https://leetcode.com/problems/longest-repeating-character-replacement/",
+                    "difficulty": "Medium"
+                },
+                {
+                    "name": "Minimum Window Substring",
+                    "slug": "minimum-window-substring",
+                    "link": "https://leetcode.com/problems/minimum-window-substring/",
+                    "difficulty": "Hard"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Longest Distinct Characters in String",
+                    "link": "https://practice.geeksforgeeks.org/problems/longest-distinct-characters-in-string5848/1",
+                    "difficulty": "Easy"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "Longest Substring Without Repeating Characters",
+                    "link": "https://www.naukri.com/code360/problems/longest-substring-without-repeating-characters_630418",
+                    "difficulty": "Medium"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Median of Two Sorted Arrays",
+        "slug": "median-of-two-sorted-arrays",
+        "platform": "leetcode",
+        "difficulty": "Hard",
+        "topics": [
+            "Array",
+            "Binary Search",
+            "Divide and Conquer"
+        ],
+        "companies": [
+            "Google",
+            "Amazon",
+            "Apple",
+            "Microsoft",
+            "Goldman Sachs"
+        ],
+        "link": "https://leetcode.com/problems/median-of-two-sorted-arrays/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Kth Smallest Element in a Sorted Matrix",
+                    "slug": "kth-smallest-element-in-a-sorted-matrix",
+                    "link": "https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/",
+                    "difficulty": "Medium"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Median of Two Sorted Arrays of Different Sizes",
+                    "link": "https://practice.geeksforgeeks.org/problems/median-of-2-sorted-arrays-of-different-sizes/1",
+                    "difficulty": "Hard"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "Median of Two Sorted Arrays",
+                    "link": "https://www.naukri.com/code360/problems/median-of-two-sorted-arrays_985294",
+                    "difficulty": "Hard"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Longest Palindromic Substring",
+        "slug": "longest-palindromic-substring",
+        "platform": "leetcode",
+        "difficulty": "Medium",
+        "topics": [
+            "String",
+            "Dynamic Programming"
+        ],
+        "companies": [
+            "Amazon",
+            "Microsoft",
+            "Google",
+            "Facebook"
+        ],
+        "link": "https://leetcode.com/problems/longest-palindromic-substring/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Palindromic Substrings",
+                    "slug": "palindromic-substrings",
+                    "link": "https://leetcode.com/problems/palindromic-substrings/",
+                    "difficulty": "Medium"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Longest Palindrome in a String",
+                    "link": "https://practice.geeksforgeeks.org/problems/longest-palindrome-in-a-string3411/1",
+                    "difficulty": "Medium"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "Longest Palindromic Substring",
+                    "link": "https://www.naukri.com/code360/problems/longest-palindromic-substring_758900",
+                    "difficulty": "Medium"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Container With Most Water",
+        "slug": "container-with-most-water",
+        "platform": "leetcode",
+        "difficulty": "Medium",
+        "topics": [
+            "Array",
+            "Two Pointers",
+            "Greedy"
+        ],
+        "companies": [
+            "Amazon",
+            "Google",
+            "Facebook",
+            "Goldman Sachs"
+        ],
+        "link": "https://leetcode.com/problems/container-with-most-water/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Trapping Rain Water",
+                    "slug": "trapping-rain-water",
+                    "link": "https://leetcode.com/problems/trapping-rain-water/",
+                    "difficulty": "Hard"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Container With Most Water",
+                    "link": "https://practice.geeksforgeeks.org/problems/container-with-most-water0535/1",
+                    "difficulty": "Medium"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "Container With Most Water",
+                    "link": "https://www.naukri.com/code360/problems/container-with-most-water_873876",
+                    "difficulty": "Medium"
+                }
+            ]
+        }
+    },
+    {
+        "name": "3Sum",
+        "slug": "3sum",
+        "platform": "leetcode",
+        "difficulty": "Medium",
+        "topics": [
+            "Array",
+            "Two Pointers",
+            "Sorting"
+        ],
+        "companies": [
+            "Amazon",
+            "Facebook",
+            "Microsoft",
+            "Apple",
+            "Google"
+        ],
+        "link": "https://leetcode.com/problems/3sum/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Two Sum",
+                    "slug": "two-sum",
+                    "link": "https://leetcode.com/problems/two-sum/",
+                    "difficulty": "Easy"
+                },
+                {
+                    "name": "4Sum",
+                    "slug": "4sum",
+                    "link": "https://leetcode.com/problems/4sum/",
+                    "difficulty": "Medium"
+                },
+                {
+                    "name": "3Sum Closest",
+                    "slug": "3sum-closest",
+                    "link": "https://leetcode.com/problems/3sum-closest/",
+                    "difficulty": "Medium"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Find Triplets with Zero Sum",
+                    "link": "https://practice.geeksforgeeks.org/problems/find-triplets-with-zero-sum/1",
+                    "difficulty": "Medium"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "Triplet Sum",
+                    "link": "https://www.naukri.com/code360/problems/triplet-sum_893028",
+                    "difficulty": "Medium"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Valid Parentheses",
+        "slug": "valid-parentheses",
+        "platform": "leetcode",
+        "difficulty": "Easy",
+        "topics": [
+            "String",
+            "Stack"
+        ],
+        "companies": [
+            "Amazon",
+            "Google",
+            "Facebook",
+            "Bloomberg"
+        ],
+        "link": "https://leetcode.com/problems/valid-parentheses/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Generate Parentheses",
+                    "slug": "generate-parentheses",
+                    "link": "https://leetcode.com/problems/generate-parentheses/",
+                    "difficulty": "Medium"
+                },
+                {
+                    "name": "Longest Valid Parentheses",
+                    "slug": "longest-valid-parentheses",
+                    "link": "https://leetcode.com/problems/longest-valid-parentheses/",
+                    "difficulty": "Hard"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Parenthesis Checker",
+                    "link": "https://practice.geeksforgeeks.org/problems/parenthesis-checker2744/1",
+                    "difficulty": "Easy"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "Valid Parentheses",
+                    "link": "https://www.naukri.com/code360/problems/valid-parentheses_795104",
+                    "difficulty": "Easy"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Merge Two Sorted Lists",
+        "slug": "merge-two-sorted-lists",
+        "platform": "leetcode",
+        "difficulty": "Easy",
+        "topics": [
+            "Linked List",
+            "Recursion"
+        ],
+        "companies": [
+            "Amazon",
+            "Microsoft",
+            "Apple"
+        ],
+        "link": "https://leetcode.com/problems/merge-two-sorted-lists/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Merge k Sorted Lists",
+                    "slug": "merge-k-sorted-lists",
+                    "link": "https://leetcode.com/problems/merge-k-sorted-lists/",
+                    "difficulty": "Hard"
+                },
+                {
+                    "name": "Merge Sorted Array",
+                    "slug": "merge-sorted-array",
+                    "link": "https://leetcode.com/problems/merge-sorted-array/",
+                    "difficulty": "Easy"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Merge Two Sorted Linked Lists",
+                    "link": "https://practice.geeksforgeeks.org/problems/merge-two-sorted-linked-lists/1",
+                    "difficulty": "Easy"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "Merge Two Sorted Linked Lists",
+                    "link": "https://www.naukri.com/code360/problems/merge-two-sorted-linked-lists_800332",
+                    "difficulty": "Easy"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Maximum Subarray",
+        "slug": "maximum-subarray",
+        "platform": "leetcode",
+        "difficulty": "Medium",
+        "topics": [
+            "Array",
+            "Divide and Conquer",
+            "Dynamic Programming"
+        ],
+        "companies": [
+            "Amazon",
+            "Microsoft",
+            "Apple",
+            "Google",
+            "LinkedIn"
+        ],
+        "link": "https://leetcode.com/problems/maximum-subarray/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Best Time to Buy and Sell Stock",
+                    "slug": "best-time-to-buy-and-sell-stock",
+                    "link": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+                    "difficulty": "Easy"
+                },
+                {
+                    "name": "Maximum Product Subarray",
+                    "slug": "maximum-product-subarray",
+                    "link": "https://leetcode.com/problems/maximum-product-subarray/",
+                    "difficulty": "Medium"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Kadane's Algorithm",
+                    "link": "https://practice.geeksforgeeks.org/problems/kadanes-algorithm-1587115620/1",
+                    "difficulty": "Medium"
+                }
+            ],
+            "codeforces": [
+                {
+                    "name": "Maximum Subarray Sum",
+                    "link": "https://codeforces.com/problemset/problem/1155/D",
+                    "difficulty": "1800"
+                }
+            ],
+            "coding_ninjas": [
+                {
+                    "name": "Maximum Subarray Sum",
+                    "link": "https://www.naukri.com/code360/problems/maximum-subarray-sum_630526",
+                    "difficulty": "Medium"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Climbing Stairs",
+        "slug": "climbing-stairs",
+        "platform": "leetcode",
+        "difficulty": "Easy",
+        "topics": [
+            "Math",
+            "Dynamic Programming",
+            "Memoization"
+        ],
+        "companies": [
+            "Amazon",
+            "Google",
+            "Apple",
+            "Microsoft"
+        ],
+        "link": "https://leetcode.com/problems/climbing-stairs/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Min Cost Climbing Stairs",
+                    "slug": "min-cost-climbing-stairs",
+                    "link": "https://leetcode.com/problems/min-cost-climbing-stairs/",
+                    "difficulty": "Easy"
+                },
+                {
+                    "name": "House Robber",
+                    "slug": "house-robber",
+                    "link": "https://leetcode.com/problems/house-robber/",
+                    "difficulty": "Medium"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Count Ways to Reach the Nth Stair",
+                    "link": "https://practice.geeksforgeeks.org/problems/count-ways-to-reach-the-nth-stair-1587115620/1",
+                    "difficulty": "Easy"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "Count Ways to Reach Nth Stair",
+                    "link": "https://www.naukri.com/code360/problems/count-ways-to-reach-nth-stairs_798650",
+                    "difficulty": "Easy"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Best Time to Buy and Sell Stock",
+        "slug": "best-time-to-buy-and-sell-stock",
+        "platform": "leetcode",
+        "difficulty": "Easy",
+        "topics": [
+            "Array",
+            "Dynamic Programming"
+        ],
+        "companies": [
+            "Amazon",
+            "Facebook",
+            "Microsoft",
+            "Google",
+            "Goldman Sachs"
+        ],
+        "link": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Best Time to Buy and Sell Stock II",
+                    "slug": "best-time-to-buy-and-sell-stock-ii",
+                    "link": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/",
+                    "difficulty": "Medium"
+                },
+                {
+                    "name": "Maximum Subarray",
+                    "slug": "maximum-subarray",
+                    "link": "https://leetcode.com/problems/maximum-subarray/",
+                    "difficulty": "Medium"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Stock Buy and Sell",
+                    "link": "https://practice.geeksforgeeks.org/problems/stock-buy-and-sell-1587115621/1",
+                    "difficulty": "Easy"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "Best Time to Buy and Sell Stock",
+                    "link": "https://www.naukri.com/code360/problems/best-time-to-buy-and-sell-stock_893405",
+                    "difficulty": "Easy"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Binary Tree Inorder Traversal",
+        "slug": "binary-tree-inorder-traversal",
+        "platform": "leetcode",
+        "difficulty": "Easy",
+        "topics": [
+            "Tree",
+            "Binary Tree",
+            "Stack",
+            "Depth-First Search"
+        ],
+        "companies": [
+            "Microsoft",
+            "Amazon"
+        ],
+        "link": "https://leetcode.com/problems/binary-tree-inorder-traversal/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Binary Tree Preorder Traversal",
+                    "slug": "binary-tree-preorder-traversal",
+                    "link": "https://leetcode.com/problems/binary-tree-preorder-traversal/",
+                    "difficulty": "Easy"
+                },
+                {
+                    "name": "Binary Tree Postorder Traversal",
+                    "slug": "binary-tree-postorder-traversal",
+                    "link": "https://leetcode.com/problems/binary-tree-postorder-traversal/",
+                    "difficulty": "Easy"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Inorder Traversal",
+                    "link": "https://practice.geeksforgeeks.org/problems/inorder-traversal/1",
+                    "difficulty": "Easy"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "Inorder Traversal",
+                    "link": "https://www.naukri.com/code360/problems/inorder-traversal_3839474",
+                    "difficulty": "Easy"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Validate Binary Search Tree",
+        "slug": "validate-binary-search-tree",
+        "platform": "leetcode",
+        "difficulty": "Medium",
+        "topics": [
+            "Tree",
+            "Binary Search Tree",
+            "Depth-First Search",
+            "Binary Tree"
+        ],
+        "companies": [
+            "Amazon",
+            "Facebook",
+            "Microsoft",
+            "Bloomberg"
+        ],
+        "link": "https://leetcode.com/problems/validate-binary-search-tree/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Binary Tree Inorder Traversal",
+                    "slug": "binary-tree-inorder-traversal",
+                    "link": "https://leetcode.com/problems/binary-tree-inorder-traversal/",
+                    "difficulty": "Easy"
+                },
+                {
+                    "name": "Kth Smallest Element in a BST",
+                    "slug": "kth-smallest-element-in-a-bst",
+                    "link": "https://leetcode.com/problems/kth-smallest-element-in-a-bst/",
+                    "difficulty": "Medium"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Check for BST",
+                    "link": "https://practice.geeksforgeeks.org/problems/check-for-bst/1",
+                    "difficulty": "Medium"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "Validate BST",
+                    "link": "https://www.naukri.com/code360/problems/validate-bst_799483",
+                    "difficulty": "Medium"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Symmetric Tree",
+        "slug": "symmetric-tree",
+        "platform": "leetcode",
+        "difficulty": "Easy",
+        "topics": [
+            "Tree",
+            "Depth-First Search",
+            "Breadth-First Search",
+            "Binary Tree"
+        ],
+        "companies": [
+            "Amazon",
+            "Microsoft",
+            "LinkedIn"
+        ],
+        "link": "https://leetcode.com/problems/symmetric-tree/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Same Tree",
+                    "slug": "same-tree",
+                    "link": "https://leetcode.com/problems/same-tree/",
+                    "difficulty": "Easy"
+                },
+                {
+                    "name": "Invert Binary Tree",
+                    "slug": "invert-binary-tree",
+                    "link": "https://leetcode.com/problems/invert-binary-tree/",
+                    "difficulty": "Easy"
+                }
+            ],
+            "gfg": [],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "Symmetric Tree",
+                    "link": "https://www.naukri.com/code360/problems/symmetric-tree_981177",
+                    "difficulty": "Easy"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Binary Tree Level Order Traversal",
+        "slug": "binary-tree-level-order-traversal",
+        "platform": "leetcode",
+        "difficulty": "Medium",
+        "topics": [
+            "Tree",
+            "Breadth-First Search",
+            "Binary Tree"
+        ],
+        "companies": [
+            "Amazon",
+            "Microsoft",
+            "Facebook",
+            "Bloomberg"
+        ],
+        "link": "https://leetcode.com/problems/binary-tree-level-order-traversal/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Binary Tree Zigzag Level Order Traversal",
+                    "slug": "binary-tree-zigzag-level-order-traversal",
+                    "link": "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/",
+                    "difficulty": "Medium"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Level Order Traversal",
+                    "link": "https://practice.geeksforgeeks.org/problems/level-order-traversal/1",
+                    "difficulty": "Easy"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "Level Order Traversal",
+                    "link": "https://www.naukri.com/code360/problems/level-order-traversal_796002",
+                    "difficulty": "Easy"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Maximum Depth of Binary Tree",
+        "slug": "maximum-depth-of-binary-tree",
+        "platform": "leetcode",
+        "difficulty": "Easy",
+        "topics": [
+            "Tree",
+            "Depth-First Search",
+            "Breadth-First Search",
+            "Binary Tree"
+        ],
+        "companies": [
+            "Amazon",
+            "Google",
+            "Apple"
+        ],
+        "link": "https://leetcode.com/problems/maximum-depth-of-binary-tree/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Balanced Binary Tree",
+                    "slug": "balanced-binary-tree",
+                    "link": "https://leetcode.com/problems/balanced-binary-tree/",
+                    "difficulty": "Easy"
+                },
+                {
+                    "name": "Minimum Depth of Binary Tree",
+                    "slug": "minimum-depth-of-binary-tree",
+                    "link": "https://leetcode.com/problems/minimum-depth-of-binary-tree/",
+                    "difficulty": "Easy"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Height of Binary Tree",
+                    "link": "https://practice.geeksforgeeks.org/problems/height-of-binary-tree/1",
+                    "difficulty": "Easy"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "Maximum Depth of Binary Tree",
+                    "link": "https://www.naukri.com/code360/problems/maximum-depth-of-binary-tree_4609498",
+                    "difficulty": "Easy"
+                }
+            ]
+        }
+    },
+    {
+        "name": "House Robber",
+        "slug": "house-robber",
+        "platform": "leetcode",
+        "difficulty": "Medium",
+        "topics": [
+            "Array",
+            "Dynamic Programming"
+        ],
+        "companies": [
+            "Amazon",
+            "Google",
+            "Microsoft",
+            "Cisco"
+        ],
+        "link": "https://leetcode.com/problems/house-robber/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "House Robber II",
+                    "slug": "house-robber-ii",
+                    "link": "https://leetcode.com/problems/house-robber-ii/",
+                    "difficulty": "Medium"
+                },
+                {
+                    "name": "House Robber III",
+                    "slug": "house-robber-iii",
+                    "link": "https://leetcode.com/problems/house-robber-iii/",
+                    "difficulty": "Medium"
+                },
+                {
+                    "name": "Climbing Stairs",
+                    "slug": "climbing-stairs",
+                    "link": "https://leetcode.com/problems/climbing-stairs/",
+                    "difficulty": "Easy"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Stickler Thief",
+                    "link": "https://practice.geeksforgeeks.org/problems/stickler-theif-1587115621/1",
+                    "difficulty": "Medium"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "Maximum Sum of Non-Adjacent Elements",
+                    "link": "https://www.naukri.com/code360/problems/maximum-sum-of-non-adjacent-elements_843261",
+                    "difficulty": "Medium"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Number of Islands",
+        "slug": "number-of-islands",
+        "platform": "leetcode",
+        "difficulty": "Medium",
+        "topics": [
+            "Array",
+            "Depth-First Search",
+            "Breadth-First Search",
+            "Graph",
+            "Union Find",
+            "Matrix"
+        ],
+        "companies": [
+            "Amazon",
+            "Microsoft",
+            "Google",
+            "Facebook",
+            "Bloomberg"
+        ],
+        "link": "https://leetcode.com/problems/number-of-islands/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Surrounded Regions",
+                    "slug": "surrounded-regions",
+                    "link": "https://leetcode.com/problems/surrounded-regions/",
+                    "difficulty": "Medium"
+                },
+                {
+                    "name": "Max Area of Island",
+                    "slug": "max-area-of-island",
+                    "link": "https://leetcode.com/problems/max-area-of-island/",
+                    "difficulty": "Medium"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Find the Number of Islands",
+                    "link": "https://practice.geeksforgeeks.org/problems/find-the-number-of-islands/1",
+                    "difficulty": "Medium"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "Number of Islands",
+                    "link": "https://www.naukri.com/code360/problems/number-of-islands_630512",
+                    "difficulty": "Medium"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Course Schedule",
+        "slug": "course-schedule",
+        "platform": "leetcode",
+        "difficulty": "Medium",
+        "topics": [
+            "Graph",
+            "Depth-First Search",
+            "Breadth-First Search",
+            "Topological Sort"
+        ],
+        "companies": [
+            "Amazon",
+            "Microsoft",
+            "Facebook",
+            "Google"
+        ],
+        "link": "https://leetcode.com/problems/course-schedule/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Course Schedule II",
+                    "slug": "course-schedule-ii",
+                    "link": "https://leetcode.com/problems/course-schedule-ii/",
+                    "difficulty": "Medium"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Prerequisite Tasks",
+                    "link": "https://practice.geeksforgeeks.org/problems/prerequisite-tasks/1",
+                    "difficulty": "Medium"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "Course Schedule",
+                    "link": "https://www.naukri.com/code360/problems/course-schedule_985244",
+                    "difficulty": "Medium"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Implement Trie (Prefix Tree)",
+        "slug": "implement-trie-prefix-tree",
+        "platform": "leetcode",
+        "difficulty": "Medium",
+        "topics": [
+            "Hash Table",
+            "String",
+            "Trie",
+            "Design"
+        ],
+        "companies": [
+            "Amazon",
+            "Google",
+            "Microsoft"
+        ],
+        "link": "https://leetcode.com/problems/implement-trie-prefix-tree/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Word Search II",
+                    "slug": "word-search-ii",
+                    "link": "https://leetcode.com/problems/word-search-ii/",
+                    "difficulty": "Hard"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Trie Insert and Search",
+                    "link": "https://practice.geeksforgeeks.org/problems/trie-insert-and-search0651/1",
+                    "difficulty": "Medium"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "Implement Trie",
+                    "link": "https://www.naukri.com/code360/problems/implement-trie_631356",
+                    "difficulty": "Medium"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Kth Largest Element in an Array",
+        "slug": "kth-largest-element-in-an-array",
+        "platform": "leetcode",
+        "difficulty": "Medium",
+        "topics": [
+            "Array",
+            "Sorting",
+            "Heap",
+            "Divide and Conquer",
+            "Quickselect"
+        ],
+        "companies": [
+            "Amazon",
+            "Facebook",
+            "Google",
+            "Microsoft",
+            "Apple"
+        ],
+        "link": "https://leetcode.com/problems/kth-largest-element-in-an-array/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Top K Frequent Elements",
+                    "slug": "top-k-frequent-elements",
+                    "link": "https://leetcode.com/problems/top-k-frequent-elements/",
+                    "difficulty": "Medium"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Kth Largest Element",
+                    "link": "https://practice.geeksforgeeks.org/problems/kth-smallest-element5635/1",
+                    "difficulty": "Medium"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "Kth Largest Element",
+                    "link": "https://www.naukri.com/code360/problems/kth-largest-element_893263",
+                    "difficulty": "Medium"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Coin Change",
+        "slug": "coin-change",
+        "platform": "leetcode",
+        "difficulty": "Medium",
+        "topics": [
+            "Array",
+            "Dynamic Programming",
+            "Breadth-First Search"
+        ],
+        "companies": [
+            "Amazon",
+            "Google",
+            "Microsoft",
+            "Apple"
+        ],
+        "link": "https://leetcode.com/problems/coin-change/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Coin Change II",
+                    "slug": "coin-change-ii",
+                    "link": "https://leetcode.com/problems/coin-change-ii/",
+                    "difficulty": "Medium"
+                },
+                {
+                    "name": "Perfect Squares",
+                    "slug": "perfect-squares",
+                    "link": "https://leetcode.com/problems/perfect-squares/",
+                    "difficulty": "Medium"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Coin Change",
+                    "link": "https://practice.geeksforgeeks.org/problems/coin-change2448/1",
+                    "difficulty": "Medium"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "Minimum Elements",
+                    "link": "https://www.naukri.com/code360/problems/minimum-elements_3843091",
+                    "difficulty": "Medium"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Product of Array Except Self",
+        "slug": "product-of-array-except-self",
+        "platform": "leetcode",
+        "difficulty": "Medium",
+        "topics": [
+            "Array",
+            "Prefix Sum"
+        ],
+        "companies": [
+            "Amazon",
+            "Facebook",
+            "Apple",
+            "Microsoft"
+        ],
+        "link": "https://leetcode.com/problems/product-of-array-except-self/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Trapping Rain Water",
+                    "slug": "trapping-rain-water",
+                    "link": "https://leetcode.com/problems/trapping-rain-water/",
+                    "difficulty": "Hard"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Product Array Puzzle",
+                    "link": "https://practice.geeksforgeeks.org/problems/product-array-puzzle4525/1",
+                    "difficulty": "Easy"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "Product of Array Except Self",
+                    "link": "https://www.naukri.com/code360/problems/product-of-array-except-self_630271",
+                    "difficulty": "Medium"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Find Median from Data Stream",
+        "slug": "find-median-from-data-stream",
+        "platform": "leetcode",
+        "difficulty": "Hard",
+        "topics": [
+            "Heap",
+            "Design",
+            "Two Pointers",
+            "Sorting",
+            "Data Stream"
+        ],
+        "companies": [
+            "Amazon",
+            "Google",
+            "Microsoft",
+            "Apple"
+        ],
+        "link": "https://leetcode.com/problems/find-median-from-data-stream/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Sliding Window Median",
+                    "slug": "sliding-window-median",
+                    "link": "https://leetcode.com/problems/sliding-window-median/",
+                    "difficulty": "Hard"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Find Median in a Stream",
+                    "link": "https://practice.geeksforgeeks.org/problems/find-median-in-a-stream-1587115620/1",
+                    "difficulty": "Hard"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "Running Median",
+                    "link": "https://www.naukri.com/code360/problems/running-median_625409",
+                    "difficulty": "Hard"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Merge Intervals",
+        "slug": "merge-intervals",
+        "platform": "leetcode",
+        "difficulty": "Medium",
+        "topics": [
+            "Array",
+            "Sorting"
+        ],
+        "companies": [
+            "Amazon",
+            "Facebook",
+            "Google",
+            "Microsoft",
+            "Bloomberg"
+        ],
+        "link": "https://leetcode.com/problems/merge-intervals/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Insert Interval",
+                    "slug": "insert-interval",
+                    "link": "https://leetcode.com/problems/insert-interval/",
+                    "difficulty": "Medium"
+                },
+                {
+                    "name": "Non-overlapping Intervals",
+                    "slug": "non-overlapping-intervals",
+                    "link": "https://leetcode.com/problems/non-overlapping-intervals/",
+                    "difficulty": "Medium"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Overlapping Intervals",
+                    "link": "https://practice.geeksforgeeks.org/problems/overlapping-intervals4919/1",
+                    "difficulty": "Medium"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "Merge Intervals",
+                    "link": "https://www.naukri.com/code360/problems/merge-intervals_699917",
+                    "difficulty": "Medium"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Word Break",
+        "slug": "word-break",
+        "platform": "leetcode",
+        "difficulty": "Medium",
+        "topics": [
+            "Hash Table",
+            "String",
+            "Dynamic Programming",
+            "Trie",
+            "Memoization"
+        ],
+        "companies": [
+            "Amazon",
+            "Google",
+            "Facebook",
+            "Apple",
+            "Bloomberg"
+        ],
+        "link": "https://leetcode.com/problems/word-break/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Word Break II",
+                    "slug": "word-break-ii",
+                    "link": "https://leetcode.com/problems/word-break-ii/",
+                    "difficulty": "Hard"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Word Break",
+                    "link": "https://practice.geeksforgeeks.org/problems/word-break1352/1",
+                    "difficulty": "Medium"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "Word Break",
+                    "link": "https://www.naukri.com/code360/problems/word-break_1094901",
+                    "difficulty": "Medium"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Linked List Cycle",
+        "slug": "linked-list-cycle",
+        "platform": "leetcode",
+        "difficulty": "Easy",
+        "topics": [
+            "Hash Table",
+            "Linked List",
+            "Two Pointers"
+        ],
+        "companies": [
+            "Amazon",
+            "Microsoft",
+            "Apple"
+        ],
+        "link": "https://leetcode.com/problems/linked-list-cycle/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Linked List Cycle II",
+                    "slug": "linked-list-cycle-ii",
+                    "link": "https://leetcode.com/problems/linked-list-cycle-ii/",
+                    "difficulty": "Medium"
+                },
+                {
+                    "name": "Happy Number",
+                    "slug": "happy-number",
+                    "link": "https://leetcode.com/problems/happy-number/",
+                    "difficulty": "Easy"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Detect Loop in Linked List",
+                    "link": "https://practice.geeksforgeeks.org/problems/detect-loop-in-linked-list/1",
+                    "difficulty": "Easy"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "Detect Cycle in Linked List",
+                    "link": "https://www.naukri.com/code360/problems/detect-cycle-in-a-singly-linked-list_628974",
+                    "difficulty": "Easy"
+                }
+            ]
+        }
+    },
+    {
+        "name": "LRU Cache",
+        "slug": "lru-cache",
+        "platform": "leetcode",
+        "difficulty": "Medium",
+        "topics": [
+            "Hash Table",
+            "Linked List",
+            "Design",
+            "Doubly-Linked List"
+        ],
+        "companies": [
+            "Amazon",
+            "Microsoft",
+            "Google",
+            "Facebook",
+            "Apple",
+            "Bloomberg"
+        ],
+        "link": "https://leetcode.com/problems/lru-cache/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "LFU Cache",
+                    "slug": "lfu-cache",
+                    "link": "https://leetcode.com/problems/lfu-cache/",
+                    "difficulty": "Hard"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "LRU Cache",
+                    "link": "https://practice.geeksforgeeks.org/problems/lru-cache/1",
+                    "difficulty": "Hard"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "LRU Cache",
+                    "link": "https://www.naukri.com/code360/problems/lru-cache-implementation_670276",
+                    "difficulty": "Medium"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Longest Increasing Subsequence",
+        "slug": "longest-increasing-subsequence",
+        "platform": "leetcode",
+        "difficulty": "Medium",
+        "topics": [
+            "Array",
+            "Binary Search",
+            "Dynamic Programming"
+        ],
+        "companies": [
+            "Amazon",
+            "Google",
+            "Microsoft",
+            "Facebook"
+        ],
+        "link": "https://leetcode.com/problems/longest-increasing-subsequence/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Longest Common Subsequence",
+                    "slug": "longest-common-subsequence",
+                    "link": "https://leetcode.com/problems/longest-common-subsequence/",
+                    "difficulty": "Medium"
+                },
+                {
+                    "name": "Russian Doll Envelopes",
+                    "slug": "russian-doll-envelopes",
+                    "link": "https://leetcode.com/problems/russian-doll-envelopes/",
+                    "difficulty": "Hard"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Longest Increasing Subsequence",
+                    "link": "https://practice.geeksforgeeks.org/problems/longest-increasing-subsequence-1587115620/1",
+                    "difficulty": "Medium"
+                }
+            ],
+            "codeforces": [
+                {
+                    "name": "LIS Problem",
+                    "link": "https://codeforces.com/problemset/problem/340/D",
+                    "difficulty": "1700"
+                }
+            ],
+            "coding_ninjas": [
+                {
+                    "name": "Longest Increasing Subsequence",
+                    "link": "https://www.naukri.com/code360/problems/longest-increasing-subsequence_630459",
+                    "difficulty": "Medium"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Reverse Linked List",
+        "slug": "reverse-linked-list",
+        "platform": "leetcode",
+        "difficulty": "Easy",
+        "topics": [
+            "Linked List",
+            "Recursion"
+        ],
+        "companies": [
+            "Amazon",
+            "Microsoft",
+            "Apple",
+            "Google"
+        ],
+        "link": "https://leetcode.com/problems/reverse-linked-list/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Reverse Linked List II",
+                    "slug": "reverse-linked-list-ii",
+                    "link": "https://leetcode.com/problems/reverse-linked-list-ii/",
+                    "difficulty": "Medium"
+                },
+                {
+                    "name": "Palindrome Linked List",
+                    "slug": "palindrome-linked-list",
+                    "link": "https://leetcode.com/problems/palindrome-linked-list/",
+                    "difficulty": "Easy"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Reverse a Linked List",
+                    "link": "https://practice.geeksforgeeks.org/problems/reverse-a-linked-list/1",
+                    "difficulty": "Easy"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "Reverse Linked List",
+                    "link": "https://www.naukri.com/code360/problems/reverse-linked-list_920513",
+                    "difficulty": "Easy"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Search in Rotated Sorted Array",
+        "slug": "search-in-rotated-sorted-array",
+        "platform": "leetcode",
+        "difficulty": "Medium",
+        "topics": [
+            "Array",
+            "Binary Search"
+        ],
+        "companies": [
+            "Amazon",
+            "Facebook",
+            "Microsoft",
+            "Google",
+            "Bloomberg"
+        ],
+        "link": "https://leetcode.com/problems/search-in-rotated-sorted-array/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Search in Rotated Sorted Array II",
+                    "slug": "search-in-rotated-sorted-array-ii",
+                    "link": "https://leetcode.com/problems/search-in-rotated-sorted-array-ii/",
+                    "difficulty": "Medium"
+                },
+                {
+                    "name": "Find Minimum in Rotated Sorted Array",
+                    "slug": "find-minimum-in-rotated-sorted-array",
+                    "link": "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/",
+                    "difficulty": "Medium"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Search in Rotated Sorted Array",
+                    "link": "https://practice.geeksforgeeks.org/problems/search-in-a-rotated-array4618/1",
+                    "difficulty": "Medium"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "Search in Rotated Sorted Array",
+                    "link": "https://www.naukri.com/code360/problems/search-in-rotated-sorted-array_1082554",
+                    "difficulty": "Medium"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Min Stack",
+        "slug": "min-stack",
+        "platform": "leetcode",
+        "difficulty": "Medium",
+        "topics": [
+            "Stack",
+            "Design"
+        ],
+        "companies": [
+            "Amazon",
+            "Google",
+            "Microsoft",
+            "Bloomberg"
+        ],
+        "link": "https://leetcode.com/problems/min-stack/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Max Stack",
+                    "slug": "max-stack",
+                    "link": "https://leetcode.com/problems/max-stack/",
+                    "difficulty": "Hard"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Get Minimum from Stack",
+                    "link": "https://practice.geeksforgeeks.org/problems/get-minimum-element-from-stack/1",
+                    "difficulty": "Easy"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "Min Stack",
+                    "link": "https://www.naukri.com/code360/problems/min-stack_985311",
+                    "difficulty": "Easy"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Trapping Rain Water",
+        "slug": "trapping-rain-water",
+        "platform": "leetcode",
+        "difficulty": "Hard",
+        "topics": [
+            "Array",
+            "Two Pointers",
+            "Dynamic Programming",
+            "Stack",
+            "Monotonic Stack"
+        ],
+        "companies": [
+            "Amazon",
+            "Google",
+            "Goldman Sachs",
+            "Microsoft",
+            "Facebook",
+            "Apple"
+        ],
+        "link": "https://leetcode.com/problems/trapping-rain-water/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Container With Most Water",
+                    "slug": "container-with-most-water",
+                    "link": "https://leetcode.com/problems/container-with-most-water/",
+                    "difficulty": "Medium"
+                },
+                {
+                    "name": "Largest Rectangle in Histogram",
+                    "slug": "largest-rectangle-in-histogram",
+                    "link": "https://leetcode.com/problems/largest-rectangle-in-histogram/",
+                    "difficulty": "Hard"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Trapping Rain Water",
+                    "link": "https://practice.geeksforgeeks.org/problems/trapping-rain-water-1587115621/1",
+                    "difficulty": "Medium"
+                }
+            ],
+            "codeforces": [
+                {
+                    "name": "Water Tank",
+                    "link": "https://codeforces.com/problemset/problem/1300/E",
+                    "difficulty": "2100"
+                }
+            ],
+            "coding_ninjas": [
+                {
+                    "name": "Trapping Rain Water",
+                    "link": "https://www.naukri.com/code360/problems/trapping-rain-water_630519",
+                    "difficulty": "Hard"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Group Anagrams",
+        "slug": "group-anagrams",
+        "platform": "leetcode",
+        "difficulty": "Medium",
+        "topics": [
+            "Array",
+            "Hash Table",
+            "String",
+            "Sorting"
+        ],
+        "companies": [
+            "Amazon",
+            "Facebook",
+            "Google",
+            "Microsoft"
+        ],
+        "link": "https://leetcode.com/problems/group-anagrams/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Valid Anagram",
+                    "slug": "valid-anagram",
+                    "link": "https://leetcode.com/problems/valid-anagram/",
+                    "difficulty": "Easy"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Anagram Together",
+                    "link": "https://practice.geeksforgeeks.org/problems/print-anagrams-together/1",
+                    "difficulty": "Medium"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "Group Anagrams",
+                    "link": "https://www.naukri.com/code360/problems/group-anagrams_800285",
+                    "difficulty": "Medium"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Serialize and Deserialize Binary Tree",
+        "slug": "serialize-and-deserialize-binary-tree",
+        "platform": "leetcode",
+        "difficulty": "Hard",
+        "topics": [
+            "String",
+            "Tree",
+            "Design",
+            "Depth-First Search",
+            "Breadth-First Search",
+            "Binary Tree"
+        ],
+        "companies": [
+            "Amazon",
+            "Facebook",
+            "Microsoft",
+            "Google",
+            "LinkedIn"
+        ],
+        "link": "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Construct Binary Tree from Preorder and Inorder Traversal",
+                    "slug": "construct-binary-tree-from-preorder-and-inorder-traversal",
+                    "link": "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/",
+                    "difficulty": "Medium"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Serialize and Deserialize a Binary Tree",
+                    "link": "https://practice.geeksforgeeks.org/problems/serialize-and-deserialize-a-binary-tree/1",
+                    "difficulty": "Medium"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "Serialize and Deserialize Binary Tree",
+                    "link": "https://www.naukri.com/code360/problems/serialize-and-deserialize-binary-tree_920328",
+                    "difficulty": "Hard"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Longest Common Subsequence",
+        "slug": "longest-common-subsequence",
+        "platform": "leetcode",
+        "difficulty": "Medium",
+        "topics": [
+            "String",
+            "Dynamic Programming"
+        ],
+        "companies": [
+            "Amazon",
+            "Google",
+            "Microsoft"
+        ],
+        "link": "https://leetcode.com/problems/longest-common-subsequence/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Longest Increasing Subsequence",
+                    "slug": "longest-increasing-subsequence",
+                    "link": "https://leetcode.com/problems/longest-increasing-subsequence/",
+                    "difficulty": "Medium"
+                },
+                {
+                    "name": "Edit Distance",
+                    "slug": "edit-distance",
+                    "link": "https://leetcode.com/problems/edit-distance/",
+                    "difficulty": "Medium"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Longest Common Subsequence",
+                    "link": "https://practice.geeksforgeeks.org/problems/longest-common-subsequence-1587115620/1",
+                    "difficulty": "Medium"
+                }
+            ],
+            "codeforces": [
+                {
+                    "name": "LCS Problem",
+                    "link": "https://codeforces.com/problemset/problem/346/B",
+                    "difficulty": "1900"
+                }
+            ],
+            "coding_ninjas": [
+                {
+                    "name": "Longest Common Subsequence",
+                    "link": "https://www.naukri.com/code360/problems/longest-common-subsequence_624879",
+                    "difficulty": "Medium"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Word Search",
+        "slug": "word-search",
+        "platform": "leetcode",
+        "difficulty": "Medium",
+        "topics": [
+            "Array",
+            "String",
+            "Backtracking",
+            "Matrix"
+        ],
+        "companies": [
+            "Amazon",
+            "Microsoft",
+            "Facebook",
+            "Bloomberg"
+        ],
+        "link": "https://leetcode.com/problems/word-search/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Word Search II",
+                    "slug": "word-search-ii",
+                    "link": "https://leetcode.com/problems/word-search-ii/",
+                    "difficulty": "Hard"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Word Search",
+                    "link": "https://practice.geeksforgeeks.org/problems/word-search/1",
+                    "difficulty": "Medium"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "Word Search",
+                    "link": "https://www.naukri.com/code360/problems/word-search_1094938",
+                    "difficulty": "Medium"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Subsets",
+        "slug": "subsets",
+        "platform": "leetcode",
+        "difficulty": "Medium",
+        "topics": [
+            "Array",
+            "Backtracking",
+            "Bit Manipulation"
+        ],
+        "companies": [
+            "Amazon",
+            "Facebook",
+            "Google",
+            "Microsoft"
+        ],
+        "link": "https://leetcode.com/problems/subsets/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Subsets II",
+                    "slug": "subsets-ii",
+                    "link": "https://leetcode.com/problems/subsets-ii/",
+                    "difficulty": "Medium"
+                },
+                {
+                    "name": "Permutations",
+                    "slug": "permutations",
+                    "link": "https://leetcode.com/problems/permutations/",
+                    "difficulty": "Medium"
+                },
+                {
+                    "name": "Combinations",
+                    "slug": "combinations",
+                    "link": "https://leetcode.com/problems/combinations/",
+                    "difficulty": "Medium"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Subsets",
+                    "link": "https://practice.geeksforgeeks.org/problems/subsets-1613027340/1",
+                    "difficulty": "Medium"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "Subsets",
+                    "link": "https://www.naukri.com/code360/problems/subsets_983610",
+                    "difficulty": "Easy"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Lowest Common Ancestor of a Binary Tree",
+        "slug": "lowest-common-ancestor-of-a-binary-tree",
+        "platform": "leetcode",
+        "difficulty": "Medium",
+        "topics": [
+            "Tree",
+            "Depth-First Search",
+            "Binary Tree"
+        ],
+        "companies": [
+            "Amazon",
+            "Facebook",
+            "Microsoft",
+            "Google"
+        ],
+        "link": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Lowest Common Ancestor of a BST",
+                    "slug": "lowest-common-ancestor-of-a-binary-search-tree",
+                    "link": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/",
+                    "difficulty": "Medium"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Lowest Common Ancestor in a Binary Tree",
+                    "link": "https://practice.geeksforgeeks.org/problems/lowest-common-ancestor-in-a-binary-tree/1",
+                    "difficulty": "Medium"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "LCA of Binary Tree",
+                    "link": "https://www.naukri.com/code360/problems/lca-of-binary-tree_920541",
+                    "difficulty": "Medium"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Matrix Chain Multiplication",
+        "slug": "matrix-chain-multiplication",
+        "platform": "leetcode",
+        "difficulty": "Hard",
+        "topics": [
+            "Array",
+            "Dynamic Programming",
+            "Matrix"
+        ],
+        "companies": [
+            "Amazon",
+            "Microsoft"
+        ],
+        "link": "https://leetcode.com/problems/burst-balloons/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Burst Balloons",
+                    "slug": "burst-balloons",
+                    "link": "https://leetcode.com/problems/burst-balloons/",
+                    "difficulty": "Hard"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Matrix Chain Multiplication",
+                    "link": "https://practice.geeksforgeeks.org/problems/matrix-chain-multiplication0303/1",
+                    "difficulty": "Hard"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "Matrix Chain Multiplication",
+                    "link": "https://www.naukri.com/code360/problems/matrix-chain-multiplication_624880",
+                    "difficulty": "Hard"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Dijkstra's Shortest Path",
+        "slug": "network-delay-time",
+        "platform": "leetcode",
+        "difficulty": "Medium",
+        "topics": [
+            "Graph",
+            "Heap",
+            "Shortest Path",
+            "Breadth-First Search"
+        ],
+        "companies": [
+            "Amazon",
+            "Google",
+            "Microsoft"
+        ],
+        "link": "https://leetcode.com/problems/network-delay-time/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Cheapest Flights Within K Stops",
+                    "slug": "cheapest-flights-within-k-stops",
+                    "link": "https://leetcode.com/problems/cheapest-flights-within-k-stops/",
+                    "difficulty": "Medium"
+                },
+                {
+                    "name": "Path with Maximum Probability",
+                    "slug": "path-with-maximum-probability",
+                    "link": "https://leetcode.com/problems/path-with-maximum-probability/",
+                    "difficulty": "Medium"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Dijkstra Algorithm",
+                    "link": "https://practice.geeksforgeeks.org/problems/implementing-dijkstra-set-1-adjacency-matrix/1",
+                    "difficulty": "Medium"
+                }
+            ],
+            "codeforces": [
+                {
+                    "name": "Shortest Path Problem",
+                    "link": "https://codeforces.com/problemset/problem/20/C",
+                    "difficulty": "1800"
+                }
+            ],
+            "coding_ninjas": [
+                {
+                    "name": "Shortest Path in Weighted Graph",
+                    "link": "https://www.naukri.com/code360/problems/shortest-path-in-weighted-undirected-graph_1228100",
+                    "difficulty": "Medium"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Sliding Window Maximum",
+        "slug": "sliding-window-maximum",
+        "platform": "leetcode",
+        "difficulty": "Hard",
+        "topics": [
+            "Array",
+            "Queue",
+            "Sliding Window",
+            "Heap",
+            "Monotonic Queue"
+        ],
+        "companies": [
+            "Amazon",
+            "Google",
+            "Microsoft",
+            "Facebook"
+        ],
+        "link": "https://leetcode.com/problems/sliding-window-maximum/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Minimum Window Substring",
+                    "slug": "minimum-window-substring",
+                    "link": "https://leetcode.com/problems/minimum-window-substring/",
+                    "difficulty": "Hard"
+                },
+                {
+                    "name": "Longest Substring Without Repeating Characters",
+                    "slug": "longest-substring-without-repeating-characters",
+                    "link": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+                    "difficulty": "Medium"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Maximum of All Subarrays of Size K",
+                    "link": "https://practice.geeksforgeeks.org/problems/maximum-of-all-subarrays-of-size-k3101/1",
+                    "difficulty": "Medium"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "Sliding Window Maximum",
+                    "link": "https://www.naukri.com/code360/problems/sliding-window-maximum_980226",
+                    "difficulty": "Hard"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Edit Distance",
+        "slug": "edit-distance",
+        "platform": "leetcode",
+        "difficulty": "Medium",
+        "topics": [
+            "String",
+            "Dynamic Programming"
+        ],
+        "companies": [
+            "Amazon",
+            "Google",
+            "Microsoft"
+        ],
+        "link": "https://leetcode.com/problems/edit-distance/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Longest Common Subsequence",
+                    "slug": "longest-common-subsequence",
+                    "link": "https://leetcode.com/problems/longest-common-subsequence/",
+                    "difficulty": "Medium"
+                },
+                {
+                    "name": "Delete Operation for Two Strings",
+                    "slug": "delete-operation-for-two-strings",
+                    "link": "https://leetcode.com/problems/delete-operation-for-two-strings/",
+                    "difficulty": "Medium"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Edit Distance",
+                    "link": "https://practice.geeksforgeeks.org/problems/edit-distance3702/1",
+                    "difficulty": "Medium"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "Edit Distance",
+                    "link": "https://www.naukri.com/code360/problems/edit-distance_630420",
+                    "difficulty": "Hard"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Binary Search",
+        "slug": "binary-search",
+        "platform": "leetcode",
+        "difficulty": "Easy",
+        "topics": [
+            "Array",
+            "Binary Search"
+        ],
+        "companies": [
+            "Amazon",
+            "Microsoft"
+        ],
+        "link": "https://leetcode.com/problems/binary-search/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Search Insert Position",
+                    "slug": "search-insert-position",
+                    "link": "https://leetcode.com/problems/search-insert-position/",
+                    "difficulty": "Easy"
+                },
+                {
+                    "name": "First Bad Version",
+                    "slug": "first-bad-version",
+                    "link": "https://leetcode.com/problems/first-bad-version/",
+                    "difficulty": "Easy"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Binary Search",
+                    "link": "https://practice.geeksforgeeks.org/problems/binary-search-1587115620/1",
+                    "difficulty": "Easy"
+                }
+            ],
+            "codeforces": [
+                {
+                    "name": "Binary Search",
+                    "link": "https://codeforces.com/problemset/problem/1201/C",
+                    "difficulty": "1500"
+                }
+            ],
+            "coding_ninjas": [
+                {
+                    "name": "Binary Search",
+                    "link": "https://www.naukri.com/code360/problems/binary-search_972",
+                    "difficulty": "Easy"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Rotate Image",
+        "slug": "rotate-image",
+        "platform": "leetcode",
+        "difficulty": "Medium",
+        "topics": [
+            "Array",
+            "Math",
+            "Matrix"
+        ],
+        "companies": [
+            "Amazon",
+            "Microsoft",
+            "Apple",
+            "Google"
+        ],
+        "link": "https://leetcode.com/problems/rotate-image/",
+        "similar_problems": {
+            "leetcode": [
+                {
+                    "name": "Spiral Matrix",
+                    "slug": "spiral-matrix",
+                    "link": "https://leetcode.com/problems/spiral-matrix/",
+                    "difficulty": "Medium"
+                }
+            ],
+            "gfg": [
+                {
+                    "name": "Rotate by 90 Degree",
+                    "link": "https://practice.geeksforgeeks.org/problems/rotate-by-90-degree-1587115621/1",
+                    "difficulty": "Easy"
+                }
+            ],
+            "codeforces": [],
+            "coding_ninjas": [
+                {
+                    "name": "Rotate Matrix",
+                    "link": "https://www.naukri.com/code360/problems/rotate-matrix_981260",
+                    "difficulty": "Medium"
+                }
+            ]
+        }
+    }
+]

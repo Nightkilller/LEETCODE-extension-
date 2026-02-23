@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeetCode Extension UI Preview</title>
+    <style>
+        :root {
+            --bg-primary: #0f1115;
+            --bg-secondary: #1a1d24;
+            --bg-surface: #222630;
+            --text-primary: #e5e7eb;
+            --text-dim: #9ca3af;
+            --accent: #3b82f6;
+            --border-subtle: #374151;
+
+            /* Complexity Colors */
+            --time-bg: rgba(59, 130, 246, 0.1);
+            --time-border: rgba(59, 130, 246, 0.3);
+            --time-text: #60a5fa;
+
+            --space-bg: rgba(16, 185, 129, 0.1);
+            --space-border: rgba(16, 185, 129, 0.3);
+            --space-text: #34d399;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .panel-container {
+            width: 100%;
+            max-width: 520px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        /* Input Section */
+        .input-section {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .input-section label {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-dim);
+        }
+
+        .input-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .input-group input {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 10px 12px;
+            color: var(--text-primary);
+            font-size: 12px;
+            transition: border-color 0.2s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        textarea {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 12px;
+            color: var(--text-primary);
+            font-family: "JetBrains Mono", "Fira Code", Consolas, monospace;
+            font-size: 12px;
+            resize: vertical;
+            min-height: 150px;
+            transition: border-color 0.2s;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 10px 16px;
+            border: 1px solid var(--accent);
+            background: var(--accent);
+            color: white;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            background: #2563eb;
+            border-color: #2563eb;
+        }
+
+        .btn:disabled {
+            background: #4b5563;
+            border-color: #4b5563;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .btn.secondary {
+            background: transparent;
+            border: 1px solid var(--border-subtle);
+            color: var(--text-primary);
+        }
+
+        .btn.secondary:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .loading {
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 13px;
+            padding: 20px;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-right: 8px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Accordion / Dropdown */
+        details.ai-accordion {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            margin-bottom: 0;
+        }
+
+        details.ai-accordion[open] {
+            border-color: rgba(59, 130, 246, 0.5);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        details.ai-accordion summary {
+            padding: 16px 20px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--bg-surface);
+            list-style: none;
+            user-select: none;
+            transition: all 0.2s;
+        }
+
+        details.ai-accordion summary:hover {
+            background: rgba(59, 130, 246, 0.08);
+        }
+
+        details.ai-accordion summary:active {
+            background: rgba(59, 130, 246, 0.12);
+        }
+
+        details.ai-accordion summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .summary-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .icon-chevron {
+            color: var(--text-dim);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        details.ai-accordion[open] summary .icon-chevron {
+            transform: rotate(180deg);
+        }
+
+        /* Code Block */
+        .code-wrapper {
+            position: relative;
+            background: #1a1a1a;
+            border-top: 1px solid var(--border-subtle);
+            padding: 0;
+            overflow: hidden;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .code-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-subtle);
+            background: #242424;
+            gap: 12px;
+        }
+
+        .language-tabs {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .language-badge {
+            background: transparent;
+            border: none;
+            color: var(--text-dim);
+            padding: 0;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border-bottom: 2px solid transparent;
+            position: relative;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        .language-badge:hover {
+            color: var(--text-primary);
+        }
+
+        .language-badge.active {
+            color: #ff6b35;
+            border-bottom-color: #ff6b35;
+        }
+
+        .section-icon {
+            font-size: 20px;
+            margin-right: 4px;
+        }
+
+        pre {
+            margin: 0;
+            overflow-x: auto;
+            overflow-y: auto;
+            max-height: 500px;
+            font-family: "JetBrains Mono", "Fira Code", Consolas, monospace;
+            font-size: 13px;
+            color: #d1d5db;
+            line-height: 1.7;
+            letter-spacing: 0.2px;
+            padding: 20px;
+            background: #1a1a1a;
+        }
+
+        pre code {
+            display: block;
+            white-space: pre;
+            word-wrap: normal;
+        }
+
+        /* Syntax Highlighting */
+        pre code .keyword {
+            color: #569cd6;
+        }
+
+        pre code .string {
+            color: #ce9178;
+        }
+
+        pre code .comment {
+            color: #6a9955;
+            font-style: italic;
+        }
+
+        pre code .number {
+            color: #b5cea8;
+        }
+
+        pre code .function {
+            color: #dcdcaa;
+        }
+
+        pre::-webkit-scrollbar {
+            width: 8px;
+            height: 6px;
+        }
+
+        pre::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        pre::-webkit-scrollbar-thumb {
+            background: rgba(75, 85, 99, 0.6);
+            border-radius: 4px;
+        }
+
+        pre::-webkit-scrollbar-thumb:hover {
+            background: #4b5563;
+        }
+
+        /* Copy Button */
+        .copy-btn {
+            position: relative;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--text-dim);
+            cursor: pointer;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+            backdrop-filter: blur(4px);
+            z-index: 10;
+            white-space: nowrap;
+        }
+
+        .copy-btn:hover {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: rgba(59, 130, 246, 0.3);
+            color: #60a5fa;
+        }
+
+        .copy-btn:active {
+            transform: scale(0.95);
+        }
+
+        .copy-btn.copied {
+            background: rgba(16, 185, 129, 0.15);
+            border-color: rgba(16, 185, 129, 0.4);
+            color: #34d399;
+        }
+
+        .copy-btn svg {
+            width: 14px;
+            height: 14px;
+        }
+
+
+        /* Complexity Cards */
+        .complexity-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .comp-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid;
+            transition: transform 0.2s ease;
+        }
+
+        .comp-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .comp-time {
+            background: var(--time-bg);
+            border-color: var(--time-border);
+        }
+
+        .comp-space {
+            background: var(--space-bg);
+            border-color: var(--space-border);
+        }
+
+        .comp-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            color: var(--text-dim);
+            margin-bottom: 6px;
+        }
+
+        .comp-val {
+            font-size: 18px;
+            font-weight: 700;
+            font-family: "JetBrains Mono", Consolas, monospace;
+        }
+
+        .comp-time .comp-val {
+            color: var(--time-text);
+        }
+
+        .comp-space .comp-val {
+            color: var(--space-text);
+        }
+
+        .error-message {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #fca5a5;
+            padding: 12px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        .success-message {
+            color: #34d399;
+            font-size: 13px;
+            text-align: center;
+            padding: 8px;
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--border-subtle);
+            margin: 8px 0;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-dim);
+            font-size: 13px;
+        }
+
+        .empty-state svg {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 12px;
+            opacity: 0.3;
+        }
+
+        .code-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            padding: 0 0 12px 0;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .language-badge {
+            background: rgba(100, 116, 139, 0.3);
+            border: 1px solid rgba(100, 116, 139, 0.5);
+            color: #cbd5e1;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-family: "JetBrains Mono", Consolas, monospace;
+        }
+
+        .section-icon {
+            font-size: 18px;
+            margin-right: 4px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="panel-container">
+        <!-- Input Form Section -->
+        <div class="input-section">
+            <h2 style="margin: 0; font-size: 16px; font-weight: 700;">Code Analysis</h2>
+            <p style="margin: 0; font-size: 12px; color: var(--text-dim);">Submit your solution code and get brute force & optimal approaches</p>
+            
+            <div class="input-group">
+                <input type="text" id="problemName" placeholder="Problem Name" />
+                <select id="language" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 10px 12px; color: var(--text-primary); font-size: 12px;">
+                    <option value="">Select Language</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="python">Python</option>
+                    <option value="java">Java</option>
+                    <option value="cpp">C++</option>
+                    <option value="typescript">TypeScript</option>
+                </select>
+            </div>
+
+            <div>
+                <textarea id="codeInput" placeholder="Paste your solution code here..."></textarea>
+            </div>
+
+            <div class="button-group">
+                <button class="btn" onclick="analyzeCode()" id="analyzeBtn">Analyze Code</button>
+                <button class="btn secondary" onclick="clearForm()">Clear</button>
+            </div>
+
+            <div id="statusMessage"></div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Results Section -->
+        <div id="resultsPanel"></div>
+    </div>
+
+    <!-- Icons used -->
+    <svg style="display:none">
+        <defs>
+            <symbol id="icon-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </symbol>
+            <symbol id="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </symbol>
+            <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+            </symbol>
+        </defs>
+    </svg>
+
+
+    <script>
+        const API_BASE = 'http://localhost:3000/api'; // Change to your backend URL
+
+        function escapeHTML(str) {
+            if (!str) return '';
+            return str.replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        function showStatus(message, isError = false) {
+            const statusDiv = document.getElementById('statusMessage');
+            if (isError) {
+                statusDiv.innerHTML = `<div class="error-message">${escapeHTML(message)}</div>`;
+            } else {
+                statusDiv.innerHTML = `<div class="success-message">${escapeHTML(message)}</div>`;
+            }
+        }
+
+        function showLoading() {
+            document.getElementById('analyzeBtn').disabled = true;
+            showStatus(`<span class="spinner" style="display:inline-block;"></span>Analyzing code...`);
+        }
+
+        function stopLoading() {
+            document.getElementById('analyzeBtn').disabled = false;
+            document.getElementById('statusMessage').innerHTML = '';
+        }
+
+        async function analyzeCode() {
+            const code = document.getElementById('codeInput').value.trim();
+            const language = document.getElementById('language').value;
+            const problemName = document.getElementById('problemName').value || 'Unknown Problem';
+
+            if (!code) {
+                showStatus('Please enter some code to analyze', true);
+                return;
+            }
+
+            if (!language) {
+                showStatus('Please select a programming language', true);
+                return;
+            }
+
+            showLoading();
+
+            try {
+                const response = await fetch(`${API_BASE}/analyze`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        code,
+                        language,
+                        problemName,
+                        difficulty: 'Unknown'
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Server error: ${response.status}`);
+                }
+
+                const data = await response.json();
+                stopLoading();
+                renderResults(data);
+                showStatus('✓ Analysis complete!', false);
+            } catch (error) {
+                stopLoading();
+                showStatus(`Error: ${error.message}`, true);
+                console.error('Analysis error:', error);
+            }
+        }
+
+        function renderResults(data) {
+            const resultsPanel = document.getElementById('resultsPanel');
+            const language = document.getElementById('language').value.toUpperCase() || 'CODE';
+            let html = '';
+
+            // Brute Force Section
+            if (data.bruteForce && data.bruteForce.code) {
+                const safeCode = escapeHTML(data.bruteForce.code);
+                html += `
+                    <details class="ai-accordion" open>
+                        <summary>
+                            <span class="summary-title"><span class="section-icon">🔨</span> Brute Force Solution</span>
+                            <svg class="icon-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </summary>
+                        <div class="code-wrapper">
+                            <div class="code-header">
+                                <div class="language-tabs">
+                                    <span class="language-badge active">${language}</span>
+                                </div>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                                    <span>Copy</span>
+                                </button>
+                            </div>
+                            <pre><code>${safeCode}</code></pre>
+                        </div>
+                    </details>
+                `;
+            }
+
+            // Optimal Solution Section
+            if (data.optimal && data.optimal.code) {
+                const safeCode = escapeHTML(data.optimal.code);
+                html += `
+                    <details class="ai-accordion" open style="margin-top: 16px;">
+                        <summary>
+                            <span class="summary-title"><span class="section-icon">⚡</span> Optimized Solution</span>
+                            <svg class="icon-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </summary>
+                        <div class="code-wrapper">
+                            <div class="code-header">
+                                <div class="language-tabs">
+                                    <span class="language-badge active">${language}</span>
+                                </div>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                                    <span>Copy</span>
+                                </button>
+                            </div>
+                            <pre><code>${safeCode}</code></pre>
+                        </div>
+                    </details>
+                `;
+            }
+
+            // Complexity Cards
+            if (data.complexity) {
+                const timeV = escapeHTML(data.complexity.time) || 'N/A';
+                const spaceV = escapeHTML(data.complexity.space) || 'N/A';
+
+                html += `
+                    <div class="complexity-grid" style="margin-top: 20px;">
+                        <div class="comp-card comp-time">
+                            <div class="comp-label">Time Complexity</div>
+                            <div class="comp-val">${timeV}</div>
+                        </div>
+                        <div class="comp-card comp-space">
+                            <div class="comp-label">Space Complexity</div>
+                            <div class="comp-val">${spaceV}</div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Show error if no data
+            if (!html) {
+                html = `
+                    <div class="error-message">
+                        No results returned. Please check your code and try again.
+                    </div>
+                `;
+            }
+
+            resultsPanel.innerHTML = html;
+        }
+
+        function clearForm() {
+            document.getElementById('codeInput').value = '';
+            document.getElementById('problemName').value = '';
+            document.getElementById('language').value = '';
+            document.getElementById('resultsPanel').innerHTML = '';
+            document.getElementById('statusMessage').innerHTML = '';
+        }
+        window.copyCode = function (btn) {
+            try {
+                // Find the closest code-wrapper to get the pre element
+                const codeWrapper = btn.closest('.code-wrapper');
+                if (!codeWrapper) {
+                    console.error('Code wrapper not found');
+                    return;
+                }
+                
+                const pre = codeWrapper.querySelector('pre');
+                if (!pre) {
+                    console.error('Pre element not found');
+                    return;
+                }
+                
+                // Get the text content from the code element
+                const codeElement = pre.querySelector('code');
+                const text = codeElement ? codeElement.textContent : pre.textContent;
+                
+                if (!text) {
+                    console.error('No code text found');
+                    return;
+                }
+
+                // Copy to clipboard
+                navigator.clipboard.writeText(text).then(() => {
+                    const originalHtml = btn.innerHTML;
+
+                    // Set copied state
+                    btn.classList.add('copied');
+                    btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Copied!</span>';
+
+                    // Reset after 2s
+                    setTimeout(() => {
+                        btn.classList.remove('copied');
+                        btn.innerHTML = originalHtml;
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Copy failed:', err);
+                    alert('Failed to copy code: ' + err.message);
+                });
+            } catch (error) {
+                console.error('Error in copyCode:', error);
+                alert('Error copying code: ' + error.message);
+            }
+        };
+
+        // Load sample data on page load for demo
+        window.addEventListener('load', () => {
+            // Optional: Load sample data for demo purposes
+            // Uncomment the lines below to see sample data on page load
+            /*
+            document.getElementById('problemName').value = 'Two Sum';
+            document.getElementById('language').value = 'javascript';
+            document.getElementById('codeInput').value = `function twoSum(nums, target) {
+    for (let i = 0; i < nums.length; i++) {
+        for (let j = i + 1; j < nums.length; j++) {
+            if (nums[i] + nums[j] === target) {
+                return [i, j];
+            }
+        }
+    }
+    return [];
+}`;
+            
+            // Sample results
+            const sampleResult = {
+                bruteForce: {
+                    code: `function twoSum(nums, target) {
+    for (let i = 0; i < nums.length; i++) {
+        for (let j = i + 1; j < nums.length; j++) {
+            if (nums[i] + nums[j] === target) {
+                return [i, j];
+            }
+        }
+    }
+    return [];
+}`
+                },
+                optimal: {
+                    code: `function twoSum(nums, target) {
+    const map = new Map();
+    for (let i = 0; i < nums.length; i++) {
+        const complement = target - nums[i];
+        if (map.has(complement)) {
+            return [map.get(complement), i];
+        }
+        map.set(nums[i], i);
+    }
+    return [];
+}`
+                },
+                complexity: {
+                    time: 'O(n)',
+                    space: 'O(n)'
+                }
+            };
+            renderResults(sampleResult);
+            showStatus('✓ Sample data loaded - replace with your own code', false);
+            */
+        });
+    </script>
+</body>
+
+</html>
