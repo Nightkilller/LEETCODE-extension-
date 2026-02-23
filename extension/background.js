@@ -69,6 +69,16 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         return true;
     }
 
+    if (message.type === 'SET_AI_PROVIDER') {
+        setAIProvider(message.provider).then(() => sendResponse({ success: true }));
+        return true;
+    }
+
+    if (message.type === 'GET_AI_CONFIG') {
+        getAIConfig().then(config => sendResponse({ success: true, data: config }));
+        return true;
+    }
+
     // ── AI: Analyze code ────────────────────────────────────
 
     if (message.type === 'CALL_ANALYZE') {

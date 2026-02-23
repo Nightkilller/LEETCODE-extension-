@@ -1,41 +1,103 @@
 /**
- * Gemini AI Service — Direct REST API calls to Google Gemini
+ * AI Service — Direct REST API calls to Gemini or Groq
  * Runs in the background service worker context.
+ * Supports multiple AI providers.
  */
 
-const GEMINI_MODEL = 'gemini-2.0-flash-lite';
-const GEMINI_ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`;
+const PROVIDERS = {
+    gemini: {
+        name: 'Gemini (Google)',
+        endpoint: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent',
+    },
+    groq: {
+        name: 'Groq (Fast & Free)',
+        endpoint: 'https://api.groq.com/openai/v1/chat/completions',
+        model: 'llama-3.3-70b-versatile',
+    }
+};
 
 /**
- * Get the stored API key
+ * Get stored provider and key
  */
-async function getApiKey() {
+async function getAIConfig() {
     return new Promise((resolve) => {
-        chrome.storage.local.get(['geminiApiKey'], (result) => {
-            resolve(result.geminiApiKey || null);
+        chrome.storage.local.get(['aiProvider', 'aiApiKey'], (result) => {
+            resolve({
+                provider: result.aiProvider || 'groq',
+                key: result.aiApiKey || null,
+            });
         });
     });
 }
 
-/**
- * Save API key
- */
+// Compat aliases used by background.js
+async function getApiKey() {
+    const config = await getAIConfig();
+    return config.key;
+}
+
 async function setApiKey(key) {
     return new Promise((resolve) => {
-        chrome.storage.local.set({ geminiApiKey: key }, () => resolve(true));
+        chrome.storage.local.set({ aiApiKey: key }, () => resolve(true));
+    });
+}
+
+async function setAIProvider(provider) {
+    return new Promise((resolve) => {
+        chrome.storage.local.set({ aiProvider: provider }, () => resolve(true));
     });
 }
 
 /**
- * Call Gemini API directly
+ * Call AI provider
  */
-async function callGemini(prompt) {
-    const apiKey = await getApiKey();
-    if (!apiKey) {
-        throw new Error('NO_API_KEY');
+async function callAI(prompt) {
+    const config = await getAIConfig();
+    if (!config.key) throw new Error('NO_API_KEY');
+
+    if (config.provider === 'groq') {
+        return callGroq(prompt, config.key);
+    } else {
+        return callGemini(prompt, config.key);
+    }
+}
+
+/**
+ * Call Groq REST API (OpenAI-compatible)
+ */
+async function callGroq(prompt, apiKey) {
+    const response = await fetch(PROVIDERS.groq.endpoint, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${apiKey}`,
+        },
+        body: JSON.stringify({
+            model: PROVIDERS.groq.model,
+            messages: [
+                { role: 'system', content: 'You are an expert competitive programming coach. Respond in structured JSON when asked.' },
+                { role: 'user', content: prompt }
+            ],
+            temperature: 0.3,
+            max_tokens: 2000,
+        })
+    });
+
+    if (!response.ok) {
+        const err = await response.json().catch(() => ({}));
+        if (response.status === 401) throw new Error('INVALID_API_KEY');
+        throw new Error(err.error?.message || `Groq API error: ${response.status}`);
     }
 
-    const response = await fetch(`${GEMINI_ENDPOINT}?key=${apiKey}`, {
+    const data = await response.json();
+    return data.choices?.[0]?.message?.content || '';
+}
+
+/**
+ * Call Gemini REST API
+ */
+async function callGemini(prompt, apiKey) {
+    const response = await fetch(`${PROVIDERS.gemini.endpoint}?key=${apiKey}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -44,29 +106,22 @@ async function callGemini(prompt) {
                     text: 'You are an expert competitive programming coach. Respond in structured JSON when asked.\n\n' + prompt
                 }]
             }],
-            generationConfig: {
-                temperature: 0.3,
-                maxOutputTokens: 2048,
-            }
+            generationConfig: { temperature: 0.3, maxOutputTokens: 2048 }
         })
     });
 
     if (!response.ok) {
         const err = await response.json().catch(() => ({}));
-        if (response.status === 400 && err.error?.message?.includes('API key')) {
-            throw new Error('INVALID_API_KEY');
-        }
+        if (response.status === 400 && err.error?.message?.includes('API key')) throw new Error('INVALID_API_KEY');
         throw new Error(err.error?.message || `Gemini API error: ${response.status}`);
     }
 
     const data = await response.json();
-    const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
-    if (!text) throw new Error('Empty response from Gemini');
-    return text;
+    return data.candidates?.[0]?.content?.parts?.[0]?.text || '';
 }
 
 /**
- * Parse AI response as JSON, with fallback
+ * Parse AI response as JSON
  */
 function parseGeminiJSON(text) {
     try {
@@ -79,7 +134,7 @@ function parseGeminiJSON(text) {
 }
 
 /**
- * Analyze code — replacement for POST /api/analyze
+ * Analyze code
  */
 async function analyzeCode({ code, language, problemName, difficulty }) {
     const prompt = `You are a DSA engine that returns data ONLY in the required JSON format.
@@ -118,12 +173,12 @@ OUTPUT FORMAT (REQUIRED):
   }
 }`;
 
-    const response = await callGemini(prompt);
+    const response = await callAI(prompt);
     return parseGeminiJSON(response);
 }
 
 /**
- * Predict improvement — replacement for POST /api/predict
+ * Predict improvement
  */
 async function predictImprovement({ username, profileData, topicStats, contestData }) {
     const prompt = `You are an expert competitive programming coach. Based on this user's LeetCode profile, generate a personalized improvement plan.
@@ -163,6 +218,6 @@ Respond in JSON format:
   }
 }`;
 
-    const response = await callGemini(prompt);
+    const response = await callAI(prompt);
     return parseGeminiJSON(response);
 }

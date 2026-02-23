@@ -2,12 +2,12 @@
 
 An AI-powered Chrome Extension that acts as your personal coding assistant right inside the LeetCode side panel. Analyzes your code, suggests Brute Force and Optimized solutions, shows Time/Space complexity, and finds similar problems on LeetCode, GFG, Coding Ninjas, Codeforces, and more.
 
-**No server needed** — runs entirely in your browser with your own free Gemini API key.
+**No server needed** — runs entirely in your browser with your own free API key.
 
 ---
 
 ## Features 🌟
-- **AI Code Analysis** — Instant feedback powered by Google Gemini
+- **AI Code Analysis** — Instant feedback powered by Groq or Gemini (your choice)
 - **GFG-Style Code Blocks** — Dark theme, syntax indentation, 1-click copy
 - **Complexity Cards** — Time & Space complexity at a glance
 - **Similar Problems** — Cross-platform: LeetCode, GFG, Coding Ninjas, Codeforces
@@ -19,23 +19,32 @@ An AI-powered Chrome Extension that acts as your personal coding assistant right
 
 ## Quick Start (3 Steps) ⚡
 
-### Step 1: Get Your Free Gemini API Key
-1. Go to **[Google AI Studio](https://aistudio.google.com/app/apikey)**
-2. Sign in with your Google account
-3. Click **"Create API Key"**
-4. Copy the generated key (starts with `AIza...`)
+### Step 1: Get a Free API Key
+
+Pick **one** of these providers (both are free):
+
+| Provider | Speed | Get Key |
+|---|---|---|
+| **Groq** (Recommended) | ⚡ Ultra fast | [console.groq.com/keys](https://console.groq.com/keys) |
+| **Gemini** (Google) | 🔄 Standard | [aistudio.google.com/app/apikey](https://aistudio.google.com/app/apikey) |
+
+> **Groq** is recommended — it's faster and completely free. Just sign in and create an API key.
 
 ### Step 2: Install the Extension
-1. Download or clone this repo
+1. Download or clone this repo:
+   ```bash
+   git clone https://github.com/Nightkilller/LEETCODE-extension-.git
+   ```
 2. Open Chrome → go to `chrome://extensions`
 3. Turn on **Developer mode** (toggle in top right)
 4. Click **"Load unpacked"** → select the `extension/` folder
 
 ### Step 3: Paste Your API Key
-1. Click the extension icon → the side panel will open
-2. A **settings dialog** will appear automatically on first launch
-3. Paste your Gemini API key → click **Save Key**
-4. Done! Navigate to any LeetCode problem and start coding 🎉
+1. Click the extension icon → the side panel opens
+2. A **settings dialog** appears automatically on first launch
+3. Pick your provider from the dropdown (**Groq** or **Gemini**)
+4. Paste your API key → click **Save**
+5. Done! Navigate to any LeetCode problem and start coding 🎉
 
 ---
 
@@ -64,8 +73,8 @@ An AI-powered Chrome Extension that acts as your personal coding assistant right
 
 ---
 
-## Changing Your API Key 🔑
-Click the **⚙️ gear icon** in the top-right corner of the side panel at any time to update or change your API key.
+## Changing Provider or API Key 🔑
+Click the **⚙️ gear icon** in the top-right corner of the side panel at any time to switch providers or update your API key.
 
 ---
 
@@ -76,7 +85,7 @@ extension/              ← Chrome Extension (load this folder)
 ├── contentScript.js    ← Reads code from LeetCode pages
 ├── manifest.json       ← Extension config
 ├── services/
-│   ├── geminiService.js    ← Direct Gemini API calls
+│   ├── geminiService.js    ← Groq + Gemini API calls
 │   ├── leetcodeService.js  ← LeetCode GraphQL queries
 │   └── datasetService.js   ← Local problem dataset
 ├── data/
@@ -85,15 +94,13 @@ extension/              ← Chrome Extension (load this folder)
     ├── index.html      ← UI layout
     ├── sidepanel.css    ← Styling
     └── sidepanel.js     ← UI logic
-
-backend/                ← (Legacy) Not needed anymore
 ```
 
 ---
 
 ### Important Notes
-- **Free Tier**: The Gemini API free tier allows generous usage. You will NOT be charged.
-- **Privacy**: Your API key is stored locally in Chrome storage. It is NEVER sent anywhere except Google's Gemini API.
+- **Free Tier**: Both Groq and Gemini have generous free tiers. You will NOT be charged.
+- **Privacy**: Your API key is stored locally in Chrome storage. It is NEVER sent anywhere except your chosen AI provider.
 - **No Server Needed**: The entire extension runs in your browser. No backend, no hosting, no cost.
 
 ---

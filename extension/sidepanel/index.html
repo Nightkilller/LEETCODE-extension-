@@ -239,20 +239,28 @@
         style="display:none; position:fixed; inset:0; z-index:1000; background:rgba(0,0,0,0.7); backdrop-filter:blur(4px); justify-content:center; align-items:center;">
         <div
             style="background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:16px; padding:28px 24px; width:90%; max-width:360px; box-shadow:0 16px 48px rgba(0,0,0,0.5);">
-            <h2 style="font-size:16px; font-weight:700; margin-bottom:4px;">⚙️ API Key Settings</h2>
-            <p style="font-size:11px; color:var(--text-muted); margin-bottom:16px;">Get your free key from <a
-                    href="https://aistudio.google.com/app/apikey" target="_blank"
-                    style="color:var(--color-accent); text-decoration:underline;">Google AI Studio</a></p>
+            <h2 style="font-size:16px; font-weight:700; margin-bottom:4px;">⚙️ AI Settings</h2>
+            <p style="font-size:11px; color:var(--text-muted); margin-bottom:16px;">Choose your AI provider and paste
+                your API key</p>
+
             <label
-                style="font-size:11px; font-weight:600; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.5px;">Gemini
-                API Key</label>
+                style="font-size:11px; font-weight:600; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.5px;">AI
+                Provider</label>
+            <select id="providerSelect"
+                style="width:100%; margin-top:6px; margin-bottom:14px; padding:10px 12px; border-radius:8px; border:1px solid var(--border-subtle); background:var(--bg-primary); color:var(--text-primary); font-size:13px; outline:none;">
+                <option value="groq">Groq (Fast & Free — llama-3.3)</option>
+                <option value="gemini">Gemini (Google — free tier)</option>
+            </select>
+
+            <label
+                style="font-size:11px; font-weight:600; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.5px;">API
+                Key</label>
             <input id="apiKeyInput" type="password" placeholder="Paste your API key here..."
                 style="width:100%; margin-top:6px; padding:10px 12px; border-radius:8px; border:1px solid var(--border-subtle); background:var(--bg-primary); color:var(--text-primary); font-size:13px; outline:none; font-family:monospace;" />
             <div id="apiKeyStatus" style="font-size:11px; margin-top:8px; min-height:16px;"></div>
             <div style="display:flex; gap:10px; margin-top:16px;">
                 <button id="apiKeySaveBtn"
-                    style="flex:1; padding:10px; border-radius:8px; background:var(--color-accent); color:#fff; font-weight:700; font-size:13px; border:none; cursor:pointer;">Save
-                    Key</button>
+                    style="flex:1; padding:10px; border-radius:8px; background:var(--color-accent); color:#fff; font-weight:700; font-size:13px; border:none; cursor:pointer;">Save</button>
                 <button id="apiKeyCancelBtn"
                     style="flex:1; padding:10px; border-radius:8px; background:var(--bg-subtle); color:var(--text-primary); font-weight:600; font-size:13px; border:1px solid var(--border-subtle); cursor:pointer;">Cancel</button>
             </div>

@@ -70,12 +70,15 @@ function setupSettings() {
     const cancelBtn = document.getElementById('apiKeyCancelBtn');
     const input = document.getElementById('apiKeyInput');
     const status = document.getElementById('apiKeyStatus');
+    const providerSelect = document.getElementById('providerSelect');
 
     openBtn.addEventListener('click', async () => {
-        // Load existing key (masked)
-        const res = await bgMessage({ type: 'GET_API_KEY' });
-        if (res.key) {
-            input.value = res.key;
+        // Load existing config
+        const res = await bgMessage({ type: 'GET_AI_CONFIG' });
+        const config = res.data || {};
+        providerSelect.value = config.provider || 'groq';
+        if (config.key) {
+            input.value = config.key;
             status.innerHTML = '<span style="color:var(--color-success);">✅ Key saved</span>';
         } else {
             input.value = '';
@@ -94,19 +97,21 @@ function setupSettings() {
 
     saveBtn.addEventListener('click', async () => {
         const key = input.value.trim();
+        const provider = providerSelect.value;
         if (!key) {
             status.innerHTML = '<span style="color:var(--color-wrong);">❌ Please enter a key</span>';
             return;
         }
         saveBtn.textContent = 'Saving...';
         try {
+            await bgMessage({ type: 'SET_AI_PROVIDER', provider });
             await bgMessage({ type: 'SET_API_KEY', key });
-            status.innerHTML = '<span style="color:var(--color-success);">✅ Key saved successfully!</span>';
-            saveBtn.textContent = 'Save Key';
+            status.innerHTML = `<span style="color:var(--color-success);">✅ ${provider === 'groq' ? 'Groq' : 'Gemini'} key saved!</span>`;
+            saveBtn.textContent = 'Save';
             setTimeout(() => { overlay.style.display = 'none'; }, 800);
         } catch (err) {
             status.innerHTML = `<span style="color:var(--color-wrong);">❌ ${err.message}</span>`;
-            saveBtn.textContent = 'Save Key';
+            saveBtn.textContent = 'Save';
         }
     });
 }
