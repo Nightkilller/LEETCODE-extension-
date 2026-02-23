@@ -85,3 +85,7 @@ If you want to run the backend locally instead of on Render:
 ### Important Notes
 - **Free Hosting Limits**: Render's free tier spins down the server after 15 minutes of inactivity. When you use the extension for the first time in a while, it might take 30-50 seconds for the backend to "wake up".
 - **Security**: **NEVER** commit your `.env` file or hardcode your API keys into the frontend `extension/` code. The `.gitignore` is already set up to protect your `.env` file.
+
+---
+
+<p align="center"><b>Made by ADITYA with 🧠</b></p>
