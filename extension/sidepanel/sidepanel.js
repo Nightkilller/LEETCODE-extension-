@@ -1,10 +1,20 @@
 /**
  * Side Panel Logic
- * Handles tabs, communication with content script, and backend API calls
+ * Handles tabs, communication with content script, and AI calls
  * using a clean chat-like interface.
+ * No backend server needed — calls Gemini API directly via background.js.
  */
 
-const API_BASE = 'http://localhost:3000/api';
+/** Send a message to background.js and await the response */
+function bgMessage(msg) {
+    return new Promise((resolve, reject) => {
+        chrome.runtime.sendMessage(msg, (response) => {
+            if (chrome.runtime.lastError) return reject(new Error(chrome.runtime.lastError.message));
+            if (response && !response.success) return reject(new Error(response.error || 'Unknown error'));
+            resolve(response);
+        });
+    });
+}
 
 // State
 let currentProblem = null;
@@ -28,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupThemeToggle();
     setupTabs();
     setupCopyDelegation();
+    setupSettings();
 
     // Bind actions
     document.getElementById('refreshContextBtn').addEventListener('click', fetchContextFromPage);
@@ -46,7 +57,73 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initial fetch
     fetchContextFromPage();
+
+    // Check API key on startup
+    checkApiKeyOnStartup();
 });
+
+// ── Settings Modal ────────────────────────────────────────────────
+function setupSettings() {
+    const overlay = document.getElementById('settingsOverlay');
+    const openBtn = document.getElementById('settingsBtn');
+    const saveBtn = document.getElementById('apiKeySaveBtn');
+    const cancelBtn = document.getElementById('apiKeyCancelBtn');
+    const input = document.getElementById('apiKeyInput');
+    const status = document.getElementById('apiKeyStatus');
+
+    openBtn.addEventListener('click', async () => {
+        // Load existing key (masked)
+        const res = await bgMessage({ type: 'GET_API_KEY' });
+        if (res.key) {
+            input.value = res.key;
+            status.innerHTML = '<span style="color:var(--color-success);">✅ Key saved</span>';
+        } else {
+            input.value = '';
+            status.innerHTML = '<span style="color:var(--color-warning);">⚠️ No key set</span>';
+        }
+        overlay.style.display = 'flex';
+    });
+
+    cancelBtn.addEventListener('click', () => {
+        overlay.style.display = 'none';
+    });
+
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) overlay.style.display = 'none';
+    });
+
+    saveBtn.addEventListener('click', async () => {
+        const key = input.value.trim();
+        if (!key) {
+            status.innerHTML = '<span style="color:var(--color-wrong);">❌ Please enter a key</span>';
+            return;
+        }
+        saveBtn.textContent = 'Saving...';
+        try {
+            await bgMessage({ type: 'SET_API_KEY', key });
+            status.innerHTML = '<span style="color:var(--color-success);">✅ Key saved successfully!</span>';
+            saveBtn.textContent = 'Save Key';
+            setTimeout(() => { overlay.style.display = 'none'; }, 800);
+        } catch (err) {
+            status.innerHTML = `<span style="color:var(--color-wrong);">❌ ${err.message}</span>`;
+            saveBtn.textContent = 'Save Key';
+        }
+    });
+}
+
+async function checkApiKeyOnStartup() {
+    try {
+        const res = await bgMessage({ type: 'GET_API_KEY' });
+        if (!res.key) {
+            // Auto-open settings if no key
+            setTimeout(() => {
+                document.getElementById('settingsOverlay').style.display = 'flex';
+                document.getElementById('apiKeyStatus').innerHTML =
+                    '<span style="color:var(--color-warning);">⚠️ Please set your Gemini API key to use AI features</span>';
+            }, 500);
+        }
+    } catch (e) { }
+}
 
 // ── Theme ─────────────────────────────────────────────────────────
 function setupThemeToggle() {
@@ -200,20 +277,17 @@ async function runAnalysis() {
     const loadingId = appendLoadingBubble();
 
     try {
-        const res = await fetch(`${API_BASE}/analyze`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
+        const response = await bgMessage({
+            type: 'CALL_ANALYZE',
+            payload: {
                 code: currentCode,
                 language: currentLanguage,
                 problemName: currentProblem.name,
                 difficulty: currentProblem.difficulty
-            })
+            }
         });
 
-        if (!res.ok) throw new Error('AI Server ' + res.status);
-
-        const data = await res.json();
+        const data = response.data;
 
         // Remove loading
         document.getElementById(loadingId).remove();
@@ -621,9 +695,8 @@ async function loadSimilarQuestions() {
     showEl(loading);
 
     try {
-        const res = await fetch(`${API_BASE}/related/${encodeURIComponent(currentProblem.slug)}`);
-        if (!res.ok) throw new Error('API Error');
-        const data = await res.json();
+        const relRes = await bgMessage({ type: 'GET_RELATED', slug: currentProblem.slug });
+        const data = relRes.data;
 
         let allP = [];
         if (data.similar_problems) {
@@ -712,9 +785,8 @@ async function loadProfileStats() {
         uLabel.textContent = username;
         showEl(uLabel, 'inline-flex');
 
-        const res = await fetch(`${API_BASE}/profile/${encodeURIComponent(username)}`);
-        if (!res.ok) throw new Error('Profile fetch failed');
-        profileDataCache = await res.json();
+        const profRes = await bgMessage({ type: 'GET_PROFILE', username });
+        profileDataCache = profRes.data;
 
         const solved = profileDataCache.solved || { all: 0, easy: 0, medium: 0, hard: 0 };
         const total = Math.max(1, solved.all);
@@ -868,19 +940,16 @@ async function generateFeedback() {
     try {
         const result = await chrome.storage.local.get(['leetcodeUsername']);
 
-        const res = await fetch(`${API_BASE}/predict`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
+        const predRes = await bgMessage({
+            type: 'CALL_PREDICT',
+            payload: {
                 username: result.leetcodeUsername,
                 profileData: profileDataCache,
                 topicStats: profileDataCache.topicStats || [],
                 contestData: profileDataCache.contest
-            })
+            }
         });
-
-        if (!res.ok) throw new Error('Backend failed');
-        const data = await res.json();
+        const data = predRes.data;
 
         tip.textContent = data.insight || 'Keep practicing consistently to improve your rating!';
         hideEl(btn);

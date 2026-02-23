@@ -1,19 +1,28 @@
 /**
- * Background Service Worker
- * 
- * Handles extension messaging, tab detection, and
- * username storage for the popup dashboard.
+ * Background Service Worker — Message Hub
+ *
+ * Routes all API calls through the service worker.
+ * Imports: geminiService.js, leetcodeService.js, datasetService.js
  */
 
-// Listen for messages from content script
+importScripts(
+    'services/geminiService.js',
+    'services/leetcodeService.js',
+    'services/datasetService.js'
+);
+
+// Open side panel on extension icon click
 chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: true }).catch(console.error);
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+
+    // ── Existing handlers ───────────────────────────────────
+
     if (message.type === 'STORE_USERNAME') {
         chrome.storage.local.set({ leetcodeUsername: message.username }, () => {
             sendResponse({ success: true });
         });
-        return true; // Keep channel open for async response
+        return true;
     }
 
     if (message.type === 'GET_USERNAME') {
@@ -47,14 +56,79 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         sendResponse({ success: true });
         return true;
     }
+
+    // ── API Key management ──────────────────────────────────
+
+    if (message.type === 'SET_API_KEY') {
+        setApiKey(message.key).then(() => sendResponse({ success: true }));
+        return true;
+    }
+
+    if (message.type === 'GET_API_KEY') {
+        getApiKey().then(key => sendResponse({ key }));
+        return true;
+    }
+
+    // ── AI: Analyze code ────────────────────────────────────
+
+    if (message.type === 'CALL_ANALYZE') {
+        analyzeCode(message.payload)
+            .then(result => sendResponse({ success: true, data: result }))
+            .catch(err => sendResponse({ success: false, error: err.message }));
+        return true;
+    }
+
+    // ── AI: Predict improvement ─────────────────────────────
+
+    if (message.type === 'CALL_PREDICT') {
+        predictImprovement(message.payload)
+            .then(result => sendResponse({ success: true, data: result }))
+            .catch(err => sendResponse({ success: false, error: err.message }));
+        return true;
+    }
+
+    // ── LeetCode: Profile ───────────────────────────────────
+
+    if (message.type === 'GET_PROFILE') {
+        (async () => {
+            try {
+                const [profile, contest] = await Promise.all([
+                    getUserProfile(message.username),
+                    getContestHistory(message.username).catch(() => ({
+                        current: { attendedContestsCount: 0, rating: 0, globalRanking: 0, topPercentage: 100 },
+                        history: []
+                    }))
+                ]);
+                sendResponse({ success: true, data: { ...profile, contest } });
+            } catch (err) {
+                sendResponse({ success: false, error: err.message });
+            }
+        })();
+        return true;
+    }
+
+    // ── Dataset: Related problems ───────────────────────────
+
+    if (message.type === 'GET_RELATED') {
+        findRelated(message.slug)
+            .then(result => sendResponse({ success: true, data: result }))
+            .catch(err => sendResponse({ success: false, error: err.message }));
+        return true;
+    }
+
+    // ── Dataset: Topic stats ────────────────────────────────
+
+    if (message.type === 'GET_TOPICS') {
+        getTopicStats(message.solvedProblems || [])
+            .then(result => sendResponse({ success: true, data: result }))
+            .catch(err => sendResponse({ success: false, error: err.message }));
+        return true;
+    }
 });
 
 // Track when user navigates to LeetCode problem pages
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     if (changeInfo.status === 'complete' && tab.url && tab.url.includes('leetcode.com/problems/')) {
-        // Notify content script (it may already be running)
-        chrome.tabs.sendMessage(tabId, { type: 'PAGE_LOADED' }).catch(() => {
-            // Content script may not be ready yet, ignore
-        });
+        chrome.tabs.sendMessage(tabId, { type: 'PAGE_LOADED' }).catch(() => { });
     }
 });

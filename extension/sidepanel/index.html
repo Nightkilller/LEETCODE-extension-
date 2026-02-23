@@ -41,6 +41,16 @@
             </div>
         </div>
         <div class="flex gap-2">
+            <button id="settingsBtn" class="icon-btn" title="API Key Settings">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3" />
+                    <path
+                        d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                    <path
+                        d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                </svg>
+            </button>
             <button id="themeToggle" class="icon-btn" title="Toggle theme">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="12" cy="12" r="5" />
@@ -223,6 +233,31 @@
         </section>
 
     </main>
+
+    <!-- ── API Key Settings Modal ── -->
+    <div id="settingsOverlay"
+        style="display:none; position:fixed; inset:0; z-index:1000; background:rgba(0,0,0,0.7); backdrop-filter:blur(4px); justify-content:center; align-items:center;">
+        <div
+            style="background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:16px; padding:28px 24px; width:90%; max-width:360px; box-shadow:0 16px 48px rgba(0,0,0,0.5);">
+            <h2 style="font-size:16px; font-weight:700; margin-bottom:4px;">⚙️ API Key Settings</h2>
+            <p style="font-size:11px; color:var(--text-muted); margin-bottom:16px;">Get your free key from <a
+                    href="https://aistudio.google.com/app/apikey" target="_blank"
+                    style="color:var(--color-accent); text-decoration:underline;">Google AI Studio</a></p>
+            <label
+                style="font-size:11px; font-weight:600; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.5px;">Gemini
+                API Key</label>
+            <input id="apiKeyInput" type="password" placeholder="Paste your API key here..."
+                style="width:100%; margin-top:6px; padding:10px 12px; border-radius:8px; border:1px solid var(--border-subtle); background:var(--bg-primary); color:var(--text-primary); font-size:13px; outline:none; font-family:monospace;" />
+            <div id="apiKeyStatus" style="font-size:11px; margin-top:8px; min-height:16px;"></div>
+            <div style="display:flex; gap:10px; margin-top:16px;">
+                <button id="apiKeySaveBtn"
+                    style="flex:1; padding:10px; border-radius:8px; background:var(--color-accent); color:#fff; font-weight:700; font-size:13px; border:none; cursor:pointer;">Save
+                    Key</button>
+                <button id="apiKeyCancelBtn"
+                    style="flex:1; padding:10px; border-radius:8px; background:var(--bg-subtle); color:var(--text-primary); font-weight:600; font-size:13px; border:1px solid var(--border-subtle); cursor:pointer;">Cancel</button>
+            </div>
+        </div>
+    </div>
 
     <footer
         style="text-align:center; padding:12px 0 10px; font-size:11px; color:rgba(255,255,255,0.35); letter-spacing:0.5px; font-weight:600;">

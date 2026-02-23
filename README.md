@@ -1,90 +1,100 @@
 # LeetCode AI Coach Extension 🚀
 
-An AI-powered Chrome Extension that acts as your personal coding assistant right inside the LeetCode side panel. It analyzes your code, suggests Brute Force and Optimized solutions, provides Time/Space complexity, and finds similar problems across multiple platforms (LeetCode, GFG, Coding Ninjas, etc.).
+An AI-powered Chrome Extension that acts as your personal coding assistant right inside the LeetCode side panel. Analyzes your code, suggests Brute Force and Optimized solutions, shows Time/Space complexity, and finds similar problems on LeetCode, GFG, Coding Ninjas, Codeforces, and more.
+
+**No server needed** — runs entirely in your browser with your own free Gemini API key.
+
+---
 
 ## Features 🌟
-- **AI Code Analysis**: Get instant feedback on your code using Google Gemini.
-- **GFG Style Code Blocks**: Beautiful, easy-to-read dark mode code snippets with 1-click copy.
-- **Complexity Breakdown**: See Time and Space complexity at a glance.
-- **Similar Problems**: Automatically finds related questions on other platforms.
-- **Profile Stats**: Visualizes your LeetCode progress and heatmaps natively.
-- **Smart Formatting**: Handles edge-case AI outputs to ensure code always looks perfect.
+- **AI Code Analysis** — Instant feedback powered by Google Gemini
+- **GFG-Style Code Blocks** — Dark theme, syntax indentation, 1-click copy
+- **Complexity Cards** — Time & Space complexity at a glance
+- **Similar Problems** — Cross-platform: LeetCode, GFG, Coding Ninjas, Codeforces
+- **Profile Stats** — Your LeetCode progress, heatmap, and contest rating
+- **AI Improvement Roadmap** — Personalized study plan based on your profile
+- **100% Free** — No backend server, no subscriptions
+
+---
+
+## Quick Start (3 Steps) ⚡
+
+### Step 1: Get Your Free Gemini API Key
+1. Go to **[Google AI Studio](https://aistudio.google.com/app/apikey)**
+2. Sign in with your Google account
+3. Click **"Create API Key"**
+4. Copy the generated key (starts with `AIza...`)
+
+### Step 2: Install the Extension
+1. Download or clone this repo
+2. Open Chrome → go to `chrome://extensions`
+3. Turn on **Developer mode** (toggle in top right)
+4. Click **"Load unpacked"** → select the `extension/` folder
+
+### Step 3: Paste Your API Key
+1. Click the extension icon → the side panel will open
+2. A **settings dialog** will appear automatically on first launch
+3. Paste your Gemini API key → click **Save Key**
+4. Done! Navigate to any LeetCode problem and start coding 🎉
+
+---
+
+## How to Use 📖
+
+### Analyze Tab
+1. Open any LeetCode problem page
+2. Write or paste your solution code
+3. Open the side panel (click the extension icon)
+4. Click **"Analyze Latest Code"**
+5. AI will return:
+   - ✅ Brute Force solution
+   - ⚡ Optimized solution
+   - 📊 Time & Space complexity of YOUR code
+
+### Similar Tab
+- Click the **"Similar"** tab to see related problems across platforms
+- Problems are pulled from a built-in dataset of 46 curated questions
+
+### Stats Tab
+- Enter your LeetCode username to see:
+  - Solved count (Easy / Medium / Hard)
+  - Contest rating & ranking
+  - Topic mastery breakdown
+  - AI-generated improvement roadmap
+
+---
+
+## Changing Your API Key 🔑
+Click the **⚙️ gear icon** in the top-right corner of the side panel at any time to update or change your API key.
+
+---
 
 ## Project Structure 📁
-This project has two main parts:
-1. `extension/` - The frontend Chrome Extension (HTML/CSS/JS).
-2. `backend/` - The Node.js/Express server that talks to the Gemini API.
+```
+extension/              ← Chrome Extension (load this folder)
+├── background.js       ← Message hub (routes AI & data calls)
+├── contentScript.js    ← Reads code from LeetCode pages
+├── manifest.json       ← Extension config
+├── services/
+│   ├── geminiService.js    ← Direct Gemini API calls
+│   ├── leetcodeService.js  ← LeetCode GraphQL queries
+│   └── datasetService.js   ← Local problem dataset
+├── data/
+│   └── problems.json       ← 46 curated problems with cross-platform links
+└── sidepanel/
+    ├── index.html      ← UI layout
+    ├── sidepanel.css    ← Styling
+    └── sidepanel.js     ← UI logic
 
----
-
-## 1. Hosting the Backend (Render.com) ☁️
-
-To use this extension anywhere, the backend needs to be hosted online. We recommend **Render.com** (it's free!).
-
-### Deployment Steps:
-1. Ensure this entire project is pushed to your GitHub repository.
-2. Go to [Render.com](https://render.com) and sign in with GitHub.
-3. Click **New** -> **Web Service**.
-4. Connect the repository you just created.
-5. Provide the following settings:
-   - **Name**: `leetcode-ai-coach-backend` (or whatever you prefer)
-   - **Root Directory**: `backend`
-   - **Environment**: `Node`
-   - **Build Command**: `npm install`
-   - **Start Command**: `node server.js`
-6. Scroll down to **Environment Variables** and add:
-   - Key: `GEMINI_API_KEY` | Value: *(Your actual Gemini API Key)*
-   - Key: `NODE_ENV` | Value: `production`
-7. Click **Create Web Service**.
-8. Once deployed, Render will give you a URL (e.g., `https://your-app.onrender.com`). **Copy this URL**.
-
----
-
-## 2. Setting Up the Extension (Frontend) 🧩
-
-Once your backend is live, you must tell your extension where to find it.
-
-### Step-by-step:
-1. Open the `extension/sidepanel/sidepanel.js` file.
-2. At the very top (Line 7), change the `API_BASE` variable to your new Render URL:
-   ```javascript
-   // Change this:
-   const API_BASE = 'http://localhost:3000/api';
-   
-   // To this:
-   const API_BASE = 'https://your-app.onrender.com/api';
-   ```
-3. Open `extension/manifest.json`.
-4. Update the `host_permissions` array (Line 15) to include your Render domain:
-   ```json
-   "host_permissions": [
-       "https://leetcode.com/*",
-       "https://your-app.onrender.com/*"
-   ]
-   ```
-
-### Installing in Chrome:
-1. Open Google Chrome and navigate to `chrome://extensions`.
-2. Turn on **Developer mode** (toggle in the top right corner).
-3. Click **Load unpacked** in the top left.
-4. Select the `extension/` folder from this project.
-5. Go to any LeetCode problem, open the Chrome Side Panel (via the browser toolbar or extension icon), and start coding!
-
----
-
-## Local Development 🛠️
-If you want to run the backend locally instead of on Render:
-1. Open a terminal in the `backend/` directory.
-2. Run `npm install`.
-3. Create a `.env` file inside `backend/` and add your key: `GEMINI_API_KEY=your_key_here`.
-4. Run `node server.js`.
-5. Ensure the extension is pointing to `http://localhost:3000/api` as explained above.
+backend/                ← (Legacy) Not needed anymore
+```
 
 ---
 
 ### Important Notes
-- **Free Hosting Limits**: Render's free tier spins down the server after 15 minutes of inactivity. When you use the extension for the first time in a while, it might take 30-50 seconds for the backend to "wake up".
-- **Security**: **NEVER** commit your `.env` file or hardcode your API keys into the frontend `extension/` code. The `.gitignore` is already set up to protect your `.env` file.
+- **Free Tier**: The Gemini API free tier allows generous usage. You will NOT be charged.
+- **Privacy**: Your API key is stored locally in Chrome storage. It is NEVER sent anywhere except Google's Gemini API.
+- **No Server Needed**: The entire extension runs in your browser. No backend, no hosting, no cost.
 
 ---
 

@@ -12,7 +12,7 @@
     ],
     "host_permissions": [
         "https://leetcode.com/*",
-        "http://localhost:3000/*"
+        "https://generativelanguage.googleapis.com/*"
     ],
     "action": {
         "default_title": "Open AI Coach Panel",
@@ -48,7 +48,8 @@
         {
             "resources": [
                 "lib/*",
-                "icons/*"
+                "icons/*",
+                "data/*"
             ],
             "matches": [
                 "https://leetcode.com/*"
